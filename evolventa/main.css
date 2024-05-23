@@ -1,0 +1,219 @@
+@charset "UTF-8";
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i, u, s,
+dl, dt, dd, ol,
+form, fieldset, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: basemachine-line;
+}
+
+article, aside, details, figcaption,
+figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  margin: 0;
+}
+
+/*Обнуление--------------------------------------*/
+
+body {
+  background-color: black;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.main-section_msg {
+  margin-left:10px;
+} 
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_logoBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_logo {
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.menu_basketBar {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_acar {
+  height: 60px;
+  width: 60px;
+  margin-left: 70%;
+}
+
+.menu_logpng {
+  margin-left: 100px;
+  height: 45px;
+  width: 45px;
+}
+
+.menu_logpng:hover, .menu_basket:hover{
+  transition: 1s;
+  transform: scale(1.2);
+}
+
+.menu a {
+  font-size: 28px;
+  color: #03F62A;
+  z-index: 10;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  background-color: black;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  margin-top: 5px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+}
+
+/*__________________Регистрация_____________________*/
+
+.signin {
+  color: #000;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.login {
+  position: relative;
+  height: 750px;
+  width: 480px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.active, .nonactive {
+  border-bottom: 2px solid #F603DE;
+  cursor:pointer;
+  color: white;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 10px;
+  color: white;
+}
+
+span {
+  color: white;
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+}
+
+.text {
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  height: 1px;
+  margin-top: 10px;
+  transition: all 0.5s ease-in-out;
+  border: 2px dashed #03F62A;
+}
+
+.text:focus {
+  outline: 0;
+  border-radius: 20px;
+  border: 2px dashed #2bfc4e;
+  background: #5ba154;
+}
+
+.text:focus + span {
+  opacity: 0.6;
+}
+
+label {
+  display: inline-block;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+.signin {
+  background-color: #524f4e;
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  display: block;
+  height: 39px;
+  border-radius: 20px;
+  margin-top: 30px;
+  transition: .3s;
+  border: none;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.signin1 {
+  text-align:center;
+  color: white;
+  width: 100%;
+  display: block;
+  margin-top: 30px;
+  border: none;
+  text-transform: uppercase; 
+}
+
+.signin:hover {
+  color: #2bfc4e;
+  background: #fff;
+  cursor: pointer;
+}
+
+.forget {
+  text-align: center;
+  display: block;
+  top: 20px;
+  position: relative;
+}
