@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Практика</title>
+    <link rel="stylesheet" href="../css/practice.css">
+    <link rel="stylesheet" href="../css/lesson_1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body style="margin-left: 10%; align-items: center; justify-content: center;">
+     <header>
+                <a class = "mati"> <img src="svg/mati.svg" alt="mati"></a>
+                <h1>Точка на плоскости 3.</h1><br>
+                <h2>ППостроить 3-х картинный комплексный чертеж точки А(30,50,20) в системе плоскостей проекций П1/П2/(П4⊥П1), где П4 - дополнительная.</h2>
+        </header>
+    <div class="container">
+      <section class="tools-board">
+         <div class="before-buttons">
+        <div class="row">
+          <ul class="options">
+            <li class="option active tool" id="pencil">
+              <span><img src="svg/pencil.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+            <li class="option tool" id="eraser">
+              <span><img src="svg/eraser.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="options in-line" style="list-style: none;">
+            <li class="option tool" id="rectangle">
+              <span><img src="svg/rectangle.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+            <li class="option tool" id="circle">
+              <span><img src="svg/circle.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+            <li class="option tool" id="triangle">
+              <span><img src="svg/triangle.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+            </ul>
+            </div>
+            <div class="row">
+            <ul>
+            <li class="option" style="list-style: none;">
+              <input type="checkbox" id="fill-color">
+              <label for="fill-color" style="color: #24508d;">&nbsp;Заливка</label>
+            </li>
+            <li class="option" style="list-style: none;">
+              <input type="range" id="size-slider" min="1" max="20" value="2">
+            </li>
+          </ul>
+        </div>
+        <div class="row colors">
+          <ul class="options">
+            <li class="option selected">
+              <input type="color" id="color-picker" value="#000">
+            </li>
+          </ul>
+        </div>
+        </div>
+      <div class="row buttons">
+          <button class="clear-canvas">Очистить</button>
+          <button class="save-img">Сохранить</button>
+        </div>
+        </section>
+      <section class="drawing-board">
+        <canvas>
+
+        </canvas>
+      </section>
+    </div>
+    <button onclick="document.location='../../theory/html/lesson_3.html'" type="button" class="index_button">К теории</button><br>
+            <button onclick="document.location='lesson_4_practice.html'" type="button" class="index_button">К следующей практике</button><br>
+        <button onclick="document.location='index.html'" type="button" class="index_button" >К выбору темы</button>
+    
+    <script>
+      const canvas = document.querySelector("canvas"),
+      toolBtns = document.querySelectorAll(".tool"),
+      fillColor = document.querySelector("#fill-color"),
+      sizeSlider = document.querySelector("#size-slider"),
+      colorBtns = document.querySelectorAll(".colors .option"),
+      colorPicker = document.querySelector("#color-picker"),
+      clearCanvas = document.querySelector(".clear-canvas"),
+      saveImg = document.querySelector(".save-img"),
+      ctx = canvas.getContext("2d");
+
+      let prevMouseX, prevMouseY, snapshot,
+      isDrawing = false,
+      selectedTool = "pencil",
+      pencilWidth = 3,
+      selectedColor = "#000";
+
+      toolBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+              document.querySelector(".options .active").classList.remove("active");
+              btn.classList.add("active");
+              selectedTool = btn.id;
+          });
+      });
+
+      sizeSlider.addEventListener("change", () => pencilWidth = sizeSlider.value);
+      colorBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+              document.querySelector(".options .selected").classList.remove("selected");
+              btn.classList.add("selected");
+              selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
+          });
+      });
+
+      colorPicker.addEventListener("change", () => {
+          colorPicker.parentElement.style.background = colorPicker.value;
+          colorPicker.parentElement.click();
+      });
+
+      clearCanvas.addEventListener("click", () => {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          setCanvasBackground();
+      });
+
+      const setCanvasBackground = () => {
+        canvas.style.background = "url('svg/practice_3.svg')"
+        canvas.style.backgroundRepeat = "no-repeat"
+      }
+
+      window.addEventListener("load", () => {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+          setCanvasBackground();
+      });
+
+      const drawRect = (e) => {
+          if(!fillColor.checked) {
+              return ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
+          }
+          ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
+      }
+      const drawCircle = (e) => {
+          ctx.beginPath();
+          let radius = Math.sqrt(Math.pow((prevMouseX - e.offsetX), 2) + Math.pow((prevMouseY - e.offsetY), 2));
+          ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+          fillColor.checked ? ctx.fill() : ctx.stroke();
+      }
+
+      const drawTriangle = (e) => {
+          ctx.beginPath();
+          ctx.moveTo(prevMouseX, prevMouseY);
+          ctx.lineTo(e.offsetX, e.offsetY);
+          ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY);
+          ctx.closePath();
+          fillColor.checked ? ctx.fill() : ctx.stroke();
+      }
+      const startDraw = (e) => {
+          isDrawing = true;
+          prevMouseX = e.offsetX;
+          prevMouseY = e.offsetY;
+          ctx.beginPath();
+          ctx.lineWidth = pencilWidth;
+          ctx.strokeStyle = selectedColor;
+          ctx.fillStyle = selectedColor;
+          snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      }
+
+      const drawing = (e) => {
+          if(!isDrawing) return;
+          ctx.putImageData(snapshot, 0, 0);
+          if(selectedTool === "pencil" || selectedTool === "eraser") {
+              ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
+              ctx.lineTo(e.offsetX, e.offsetY);
+              ctx.stroke();
+          } else if(selectedTool === "rectangle"){
+              drawRect(e);
+          } else if(selectedTool === "circle"){
+              drawCircle(e);
+          } else {
+              drawTriangle(e);
+          }
+      }
+
+      saveImg.addEventListener("click", () => {
+          const link = document.createElement("a");
+          link.download = `${Date.now()}.jpg`;
+          link.href = canvas.toDataURL();
+          link.click();
+      });
+
+      canvas.addEventListener("mousedown", startDraw);
+      canvas.addEventListener("mousemove", drawing);
+      canvas.addEventListener("mouseup", () => isDrawing = false);
+    </script>
+  </body>
+</html>
