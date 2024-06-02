@@ -78,7 +78,7 @@
 
     <script src="../practice.js"></script>
     <script>
-const canvas = document.querySelector("canvas"),
+      const canvas = document.querySelector("canvas"),
       toolBtns = document.querySelectorAll(".tool"),
       fillColor = document.querySelector("#fill-color"),
       sizeSlider = document.querySelector("#size-slider"),
@@ -125,11 +125,6 @@ clearCanvas.addEventListener("click", () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   setCanvasBackground();
 });
-
-function setCanvasBackground() {
-  canvas.style.background = "url('svg/practice_1.svg')";
-  canvas.style.backgroundRepeat = "no-repeat";
-}
 
 window.addEventListener("load", () => {
   canvas.width = canvas.offsetWidth;
@@ -244,6 +239,11 @@ canvas.addEventListener("touchmove", (e) => {
 
 canvas.addEventListener("touchcancel", () => isDrawing = false);
 canvas.addEventListener("touchend", () => isDrawing = false);
+
+function setCanvasBackground() {
+  canvas.style.background = "url('svg/practice_1.svg')";
+  canvas.style.backgroundRepeat = "no-repeat";
+}
     </script>
   </body>
 </html>

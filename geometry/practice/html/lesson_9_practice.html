@@ -96,124 +96,129 @@
       pencilWidth = 3,
       selectedColor = "#000";
       let history = [];
+let touchX, touchY;
 
-      toolBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() { // добавление события клика ко всем опциям инструмента
-          //удаление класса «active» в случае переключения инструмента, и добавление класса «active» к активному
-          document.querySelector(".options .active").classList.remove("active");
-          btn.classList.add("active");
-          selectedTool = btn.id;
-          });
-      });
+toolBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() { 
+    document.querySelector(".options .active").classList.remove("active");
+    btn.classList.add("active");
+    selectedTool = btn.id;
+  });
+});
 
-      sizeSlider.addEventListener("change", function() {
-      pencilWidth = sizeSlider.value;
-    });
+sizeSlider.addEventListener("change", function() {
+  pencilWidth = sizeSlider.value;
+});
 
-    colorBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() {
-            document.querySelector(".options .selected").classList.remove("selected");
-            btn.classList.add("selected");
-            selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
-        });
-    });
+colorBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelector(".options .selected").classList.remove("selected");
+    btn.classList.add("selected");
+    selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
+  });
+});
 
-      colorPicker.addEventListener("change", () => {
-          colorPicker.parentElement.style.background = colorPicker.value;
-          colorPicker.parentElement.click();
-      });
+colorPicker.addEventListener("change", () => {
+  colorPicker.parentElement.style.background = colorPicker.value;
+  colorPicker.parentElement.click();
+});
 
-      clearCanvas.addEventListener("click", () => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          setCanvasBackground();
-      });
+clearCanvas.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  setCanvasBackground();
+});
 
-      const setCanvasBackground = () => {
-        canvas.style.background = "url('svg/practice_9.svg')"
-        canvas.style.backgroundRepeat = "no-repeat"
-      }
+window.addEventListener("load", () => {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  setCanvasBackground();
+});
 
-      window.addEventListener("load", () => {
-          canvas.width = canvas.offsetWidth;
-          canvas.height = canvas.offsetHeight;
-          setCanvasBackground();
-      });
+const drawLine = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX || e.touches[0].pageX - canvas.offsetLeft, e.clientY || e.touches[0].pageY - canvas.offsetTop);
+  ctx.stroke();
+}
 
-      const drawLine = (e) => {
-      ctx.beginPath();
-      ctx.moveTo(prevMouseX, prevMouseY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-    }
+const drawDashed = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX || e.touches[0].pageX - canvas.offsetLeft, e.clientY || e.touches[0].pageY - canvas.offsetTop);
+  ctx.setLineDash([5, 10]); 
+  ctx.lineCap = 'butt';
+  ctx.stroke();
+}
 
-        const drawDashed = (e) => {
-      ctx.beginPath();
-      ctx.moveTo(prevMouseX, prevMouseY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.setLineDash([5, 10]); // [dashLength, gapLength]
-      ctx.lineCap = 'butt';
-      ctx.stroke();
-    }
+const drawRect = (e) => {
+  if (!fillColor.checked) {
+    ctx.strokeRect(prevMouseX, prevMouseY, e.clientX - prevMouseX || e.touches[0].pageX - canvas.offsetLeft - prevMouseX, e.clientY - prevMouseY || e.touches[0].pageY - canvas.offsetTop - prevMouseY);
+  } else {
+    ctx.fillRect(prevMouseX, prevMouseY, e.clientX - prevMouseX || e.touches[0].pageX - canvas.offsetLeft - prevMouseX, e.clientY - prevMouseY || e.touches[0].pageY - canvas.offsetTop - prevMouseY);
+  }
+}
 
-      const drawRect = (e) => {
-          if(!fillColor.checked) {
-              return ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
-          }
-          ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
-      }
-      const drawCircle = (e) => {
-          ctx.beginPath();
-          let radius = Math.sqrt(Math.pow((prevMouseX - e.offsetX), 2) + Math.pow((prevMouseY - e.offsetY), 2));
-          ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
-          fillColor.checked ? ctx.fill() : ctx.stroke();
-      }
+const drawCircle = (e) => {
+  ctx.beginPath();
+  let radius = Math.sqrt(Math.pow((prevMouseX - (e.clientX || e.touches[0].pageX - canvas.offsetLeft)), 2) + Math.pow((prevMouseY - (e.clientY || e.touches[0].pageY - canvas.offsetTop)), 2));
+  ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+  fillColor.checked? ctx.fill() : ctx.stroke();
+}
 
-      const drawTriangle = (e) => {
-          ctx.beginPath();
-          ctx.moveTo(prevMouseX, prevMouseY);
-          ctx.lineTo(e.offsetX, e.offsetY);
-          ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY);
-          ctx.closePath();
-          fillColor.checked ? ctx.fill() : ctx.stroke();
-      }
+const drawTriangle = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX || e.touches[0].pageX - canvas.offsetLeft, e.clientY || e.touches[0].pageY - canvas.offsetTop);
+  ctx.lineTo(prevMouseX * 2 - (e.clientX || e.touches[0].pageX - canvas.offsetLeft), e.clientY || e.touches[0].pageY - canvas.offsetTop);
+  ctx.closePath();
+  fillColor.checked? ctx.fill() : ctx.stroke();
+}
 
-      const startDraw = (e) => {
-          isDrawing = true;
-          prevMouseX = e.offsetX;
-          prevMouseY = e.offsetY;
-          ctx.beginPath();
-          ctx.lineWidth = pencilWidth;
-          ctx.strokeStyle = selectedColor;
-          ctx.fillStyle = selectedColor;
-          snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          history.push(snapshot); // добавляем изображения в историю
-      }
+const startDraw = (e) => {
+  isDrawing = true;
+  prevMouseX = e.offsetX || e.touches[0].pageX - canvas.offsetLeft;
+  prevMouseY = e.offsetY || e.touches[0].pageY - canvas.offsetTop;
+  ctx.beginPath();
+  ctx.lineWidth = pencilWidth;
+  ctx.strokeStyle = selectedColor;
+  ctx.fillStyle = selectedColor;
+  snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  history.push(snapshot); 
+}
 
-      const drawing = (e) => {
-          if(!isDrawing) return;
-          ctx.putImageData(snapshot, 0, 0);
-          if(selectedTool === "pencil" || selectedTool === "eraser") {
-              ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
-              ctx.lineTo(e.offsetX, e.offsetY);
-              ctx.stroke();
-          } else if(selectedTool === "dashedLine"){
-            drawDashed(e);
-          } else if(selectedTool === "line"){
-            ctx.setLineDash([]); // Сбрасываем настройки штриховой линии
-            drawLine(e);
-          } else if(selectedTool === "rectangle"){
-            ctx.setLineDash([]);
-            drawRect(e);
-          } else if(selectedTool === "circle"){
-            ctx.setLineDash([]);
-            drawCircle(e);
-          } else {
-            ctx.setLineDash([]);
-            drawTriangle(e);
-          }
-      }
+const drawing = (e) => {
+  if (!isDrawing) return;
+  let clientX, clientY;
+  if (e.type === "mousemove") {
+    clientX = e.offsetX;
+    clientY = e.offsetY;
+  } else if (e.type === "touchmove") {
+    clientX = e.touches[0].pageX - canvas.offsetLeft;
+    clientY = e.touches[0].pageY - canvas.offsetTop;
+  }
+  ctx.putImageData(snapshot, 0, 0);
+  if (selectedTool === "pencil" || selectedTool === "eraser") {
+    ctx.strokeStyle = selectedTool === "eraser"? "#fff" : selectedColor;
+    ctx.lineTo(clientX, clientY);
+    ctx.stroke();
+  } else if (selectedTool === "dashedLine") {
+    drawDashed({ clientX, clientY });
+  } else if (selectedTool === "line") {
+    ctx.setLineDash([]); 
+    drawLine({ clientX, clientY });
+  } else if (selectedTool === "rectangle") {
+    ctx.setLineDash([]);
+    drawRect({ clientX, clientY });
+  } else if (selectedTool === "circle") {
+    ctx.setLineDash([]);
+    drawCircle({ clientX, clientY });
+  } else {
+    ctx.setLineDash([]);
+    drawTriangle({ clientX, clientY });
+  }
+}
 
-       undoLast.addEventListener("click", () => {
+undoLast.addEventListener("click", () => {
   if (history.length >= 1) {
     const previousImage = history[history.length - 1];
     history.pop();
@@ -221,9 +226,26 @@
   }
 });
 
-      canvas.addEventListener("mousedown", startDraw);
-      canvas.addEventListener("mousemove", drawing);
-      canvas.addEventListener("mouseup", () => isDrawing = false);
+canvas.addEventListener("mousedown", startDraw);
+canvas.addEventListener("mousemove", drawing);
+canvas.addEventListener("mouseup", () => isDrawing = false);
+
+canvas.addEventListener("touchstart", (e) => {
+  startDraw({ type: "touchstart", touches: e.touches });
+});
+
+canvas.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  drawing({ type: "touchmove", touches: e.touches });
+});
+
+canvas.addEventListener("touchcancel", () => isDrawing = false);
+canvas.addEventListener("touchend", () => isDrawing = false);
+
+      const setCanvasBackground = () => {
+        canvas.style.background = "url('svg/practice_9.svg')"
+        canvas.style.backgroundRepeat = "no-repeat"
+      }
     </script>
   </body>
 </html>
