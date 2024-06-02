@@ -88,96 +88,95 @@
       undoLast = document.querySelector(".undo-last"),
       ctx = canvas.getContext("2d");
 
-      let prevMouseX, prevMouseY, snapshot,
-      isDrawing = false,
-      selectedTool = "pencil",
-      pencilWidth = 3,
-      selectedColor = "#000";
-      let history = [];
-      let touchX, touchY;
+let prevMouseX, prevMouseY, snapshot,
+    isDrawing = false,
+    selectedTool = "pencil",
+    pencilWidth = 3,
+    selectedColor = "#000";
+let history = [];
+let touchX, touchY;
 
-      toolBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() { // добавление события клика ко всем опциям инструмента
-          //удаление класса «active» в случае переключения инструмента, и добавление класса «active» к активному
-          document.querySelector(".options .active").classList.remove("active");
-          btn.classList.add("active");
-          selectedTool = btn.id;
-          });
-      });
+toolBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() { 
+    document.querySelector(".options .active").classList.remove("active");
+    btn.classList.add("active");
+    selectedTool = btn.id;
+  });
+});
 
-      sizeSlider.addEventListener("change", function() {
-      pencilWidth = sizeSlider.value;
-    });
+sizeSlider.addEventListener("change", function() {
+  pencilWidth = sizeSlider.value;
+});
 
-    colorBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() {
-            document.querySelector(".options .selected").classList.remove("selected");
-            btn.classList.add("selected");
-            selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
-        });
-    });
+colorBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelector(".options .selected").classList.remove("selected");
+    btn.classList.add("selected");
+    selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
+  });
+});
 
-      colorPicker.addEventListener("change", () => {
-          colorPicker.parentElement.style.background = colorPicker.value;
-          colorPicker.parentElement.click();
-      });
+colorPicker.addEventListener("change", () => {
+  colorPicker.parentElement.style.background = colorPicker.value;
+  colorPicker.parentElement.click();
+});
 
-      clearCanvas.addEventListener("click", () => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          setCanvasBackground();
-      });
+clearCanvas.addEventListener("click", () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  setCanvasBackground();
+});
 
-      function setCanvasBackground() {
-        canvas.style.background = "url('svg/practice_1.svg')";
-        //параметр no-repeat для единоразового отображения изображения
-        canvas.style.backgroundRepeat = "no-repeat";
-      }
+function setCanvasBackground() {
+  canvas.style.background = "url('svg/practice_1.svg')";
+  canvas.style.backgroundRepeat = "no-repeat";
+}
 
-      window.addEventListener("load", () => {
-          canvas.width = canvas.offsetWidth;
-          canvas.height = canvas.offsetHeight;
-          setCanvasBackground();
-      });
+window.addEventListener("load", () => {
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  setCanvasBackground();
+});
 
-      const drawLine = (e) => {
-      ctx.beginPath();
-      ctx.moveTo(prevMouseX, prevMouseY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-    }
+const drawLine = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX, e.clientY);
+  ctx.stroke();
+}
 
-    const drawDashed = (e) => {
-      ctx.beginPath();
-      ctx.moveTo(prevMouseX, prevMouseY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.setLineDash([5, 10]); // [dashLength, gapLength]
-      ctx.lineCap = 'butt';
-      ctx.stroke();
-    }
+const drawDashed = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX, e.clientY);
+  ctx.setLineDash([5, 10]); 
+  ctx.lineCap = 'butt';
+  ctx.stroke();
+}
 
-      const drawRect = (e) => {
-          if(!fillColor.checked) {
-              return ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
-          }
-          ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
-      }
-      const drawCircle = (e) => {
-          ctx.beginPath();
-          let radius = Math.sqrt(Math.pow((prevMouseX - e.offsetX), 2) + Math.pow((prevMouseY - e.offsetY), 2));
-          ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
-          fillColor.checked ? ctx.fill() : ctx.stroke();
-      }
+const drawRect = (e) => {
+  if(!fillColor.checked) {
+    return ctx.strokeRect(e.clientX, e.clientY, prevMouseX - e.clientX, prevMouseY - e.clientY);
+  }
+  ctx.fillRect(e.clientX, e.clientY, prevMouseX - e.clientX, prevMouseY - e.clientY);
+}
 
-      const drawTriangle = (e) => {
-          ctx.beginPath();
-          ctx.moveTo(prevMouseX, prevMouseY);
-          ctx.lineTo(e.offsetX, e.offsetY);
-          ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY);
-          ctx.closePath();
-          fillColor.checked ? ctx.fill() : ctx.stroke();
-      }
+const drawCircle = (e) => {
+  ctx.beginPath();
+  let radius = Math.sqrt(Math.pow((prevMouseX - e.clientX), 2) + Math.pow((prevMouseY - e.clientY), 2));
+  ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+  fillColor.checked ? ctx.fill() : ctx.stroke();
+}
 
-  const startDraw = (e) => {
+const drawTriangle = (e) => {
+  ctx.beginPath();
+  ctx.moveTo(prevMouseX, prevMouseY);
+  ctx.lineTo(e.clientX, e.clientY);
+  ctx.lineTo(prevMouseX * 2 - e.clientX, e.clientY);
+  ctx.closePath();
+  fillColor.checked ? ctx.fill() : ctx.stroke();
+}
+
+const startDraw = (e) => {
   isDrawing = true;
   if (e.type === "mousedown") {
     prevMouseX = e.offsetX;
@@ -191,10 +190,10 @@
   ctx.strokeStyle = selectedColor;
   ctx.fillStyle = selectedColor;
   snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  history.push(snapshot); // добавляем изображения в историю
+  history.push(snapshot); 
 }
 
- const drawing = (e) => {
+const drawing = (e) => {
   if (!isDrawing) return;
   if (e.type === "mousemove") {
     prevMouseX = e.offsetX;
@@ -209,23 +208,23 @@
     ctx.lineTo(prevMouseX, prevMouseY);
     ctx.stroke();
   } else if (selectedTool === "dashedLine") {
-    drawDashed(prevMouseX, prevMouseY);
+    drawDashed({ clientX: prevMouseX, clientY: prevMouseY });
   } else if (selectedTool === "line") {
-    ctx.setLineDash([]); // Сбрасываем настройки штриховой линии
-    drawLine(prevMouseX, prevMouseY);
+    ctx.setLineDash([]); 
+    drawLine({ clientX: prevMouseX, clientY: prevMouseY });
   } else if (selectedTool === "rectangle") {
     ctx.setLineDash([]);
-    drawRect(prevMouseX, prevMouseY);
+    drawRect({ clientX: prevMouseX, clientY: prevMouseY });
   } else if (selectedTool === "circle") {
     ctx.setLineDash([]);
-    drawCircle(prevMouseX, prevMouseY);
+    drawCircle({ clientX: prevMouseX, clientY: prevMouseY });
   } else {
     ctx.setLineDash([]);
-    drawTriangle(prevMouseX, prevMouseY);
+    drawTriangle({ clientX: prevMouseX, clientY: prevMouseY });
   }
 }
 
-      undoLast.addEventListener("click", () => {
+undoLast.addEventListener("click", () => {
   if (history.length >= 1) {
     const previousImage = history[history.length - 1];
     history.pop();
@@ -233,21 +232,22 @@
   }
 });
 
-      canvas.addEventListener("mousedown", startDraw);
-      canvas.addEventListener("mousemove", drawing);
-      canvas.addEventListener("mouseup", () => isDrawing = false);
+canvas.addEventListener("mousedown", startDraw);
+canvas.addEventListener("mousemove", drawing);
+canvas.addEventListener("mouseup", () => isDrawing = false);
 
-      // Обработчики событий касаний
-    canvas.addEventListener("touchstart", (e) => {
+canvas.addEventListener("touchstart", (e) => {
   const touch = e.touches[0];
   startDraw({ type: "touchstart", clientX: touch.clientX, clientY: touch.clientY });
 });
-      canvas.addEventListener("touchmove", (e) => {
+
+canvas.addEventListener("touchmove", (e) => {
   e.preventDefault();
   const touch = e.touches[0];
   drawing({ type: "touchmove", clientX: touch.clientX, clientY: touch.clientY });
 });
-      canvas.addEventListener("touchend", () => isDrawing = false);
+
+canvas.addEventListener("touchend", () => isDrawing = false);
     </script>
   </body>
 </html>
