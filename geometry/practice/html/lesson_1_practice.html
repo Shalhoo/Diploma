@@ -181,9 +181,9 @@ const startDraw = (e) => {
   if (e.type === "mousedown") {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
-  } else {
-    prevMouseX = e.clientX;
-    prevMouseY = e.clientY;
+  } else if (e.type === "touchstart") {
+    prevMouseX = e.touches[0].pageX - canvas.offsetLeft;
+    prevMouseY = e.touches[0].pageY - canvas.offsetTop;
   }
   ctx.beginPath();
   ctx.lineWidth = pencilWidth;
@@ -198,9 +198,9 @@ const drawing = (e) => {
   if (e.type === "mousemove") {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
-  } else {
-    prevMouseX = e.clientX;
-    prevMouseY = e.clientY;
+  } else if (e.type === "touchmove") {
+    prevMouseX = e.touches[0].pageX - canvas.offsetLeft;
+    prevMouseY = e.touches[0].pageY - canvas.offsetTop;
   }
   ctx.putImageData(snapshot, 0, 0);
   if (selectedTool === "pencil" || selectedTool === "eraser") {
@@ -237,17 +237,15 @@ canvas.addEventListener("mousemove", drawing);
 canvas.addEventListener("mouseup", () => isDrawing = false);
 
 canvas.addEventListener("touchstart", (e) => {
-  const touch = e.touches[0];
-  startDraw({ type: "touchstart", offsetX: touch.pageX - canvas.offsetLeft, offsetY: touch.pageY - canvas.offsetTop });
+  startDraw({ type: "touchstart", touches: e.touches });
 });
 
 canvas.addEventListener("touchmove", (e) => {
   e.preventDefault();
-  const touch = e.touches[0];
-  drawing({ type: "touchmove", offsetX: touch.pageX - canvas.offsetLeft, offsetY: touch.pageY - canvas.offsetTop });
+  drawing({ type: "touchmove", touches: e.touches });
 });
-      canvas.addEventListener("touchcancel", () => isDrawing = false);
 
+canvas.addEventListener("touchcancel", () => isDrawing = false);
 canvas.addEventListener("touchend", () => isDrawing = false);
     </script>
   </body>
