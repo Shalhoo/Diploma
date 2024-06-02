@@ -177,15 +177,14 @@
           fillColor.checked ? ctx.fill() : ctx.stroke();
       }
 
-      const startDraw = (e) => {
+  const startDraw = (e) => {
   isDrawing = true;
   if (e.type === "mousedown") {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
   } else {
-    const touch = e.touches[0];
-    touchX = touch.clientX;
-    touchY = touch.clientY;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
   }
   ctx.beginPath();
   ctx.lineWidth = pencilWidth;
@@ -195,15 +194,14 @@
   history.push(snapshot); // добавляем изображения в историю
 }
 
-      const drawing = (e) => {
+ const drawing = (e) => {
   if (!isDrawing) return;
   if (e.type === "mousemove") {
     prevMouseX = e.offsetX;
     prevMouseY = e.offsetY;
   } else {
-    const touch = e.touches[0];
-    touchX = touch.clientX;
-    touchY = touch.clientY;
+    prevMouseX = e.clientX;
+    prevMouseY = e.clientY;
   }
   ctx.putImageData(snapshot, 0, 0);
   if (selectedTool === "pencil" || selectedTool === "eraser") {
@@ -240,13 +238,15 @@
       canvas.addEventListener("mouseup", () => isDrawing = false);
 
       // Обработчики событий касаний
-      canvas.addEventListener("touchstart", (e) => {
-        startDraw(e);
-      });
+    canvas.addEventListener("touchstart", (e) => {
+  const touch = e.touches[0];
+  startDraw({ type: "touchstart", clientX: touch.clientX, clientY: touch.clientY });
+});
       canvas.addEventListener("touchmove", (e) => {
-        e.preventDefault();
-        drawing(e);
-      });
+  e.preventDefault();
+  const touch = e.touches[0];
+  drawing({ type: "touchmove", clientX: touch.clientX, clientY: touch.clientY });
+});
       canvas.addEventListener("touchend", () => isDrawing = false);
     </script>
   </body>
