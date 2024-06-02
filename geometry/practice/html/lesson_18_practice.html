@@ -4,14 +4,12 @@
     <meta charset="utf-8">
     <title>Практика</title>
     <link rel="stylesheet" href="../css/practice.css">
-    <link rel="stylesheet" href="../css/lesson_1.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body style="margin-left: 10%; align-items: center; justify-content: center;">
      <header>
                 <a class = "mai"> <img src="svg/mai.png" alt="mai" style="height: 110px; width:70px; padding-top: 40px;"></a>
-                <h1>Пересечение прямой и плоскости</h1><br>
-                <h2>Построить точку пересечения прямой l с плоскостью (АВС) общего положения.</h2>
+                <h1>Дополнительное задание</h1><br>
         </header>
     <div class="container">
       <section class="tools-board">
@@ -70,15 +68,12 @@
         </div>
         </section>
       <section class="drawing-board">
-        <canvas>
-
-        </canvas>
+        <canvas class="canvas"></canvas>
       </section>
     </div>
-    <button onclick="document.location='../../theory/html/lesson_8.html'" type="button" class="index_button">К теории</button><br>
-            <button onclick="document.location='lesson_9_practice.html'" type="button" class="index_button">К следующей практике</button><br>
+    <button onclick="document.location='../../theory/html/lesson_1.html'" type="button" class="index_button">К теории</button><br>
         <button onclick="document.location='index.html'" type="button" class="index_button" >К выбору темы</button>
-    
+
     <script>
       const canvas = document.querySelector("canvas"),
       toolBtns = document.querySelectorAll(".tool"),
@@ -128,12 +123,11 @@
           setCanvasBackground();
       });
 
-      const setCanvasBackground = () => {
-        canvas.style.background = "url('svg/practice_8.svg')"
-        canvas.style.backgroundRepeat = "no-repeat"
+      function setCanvasBackground() {
+        canvas.style.background = "#fff";
       }
 
-     window.addEventListener("load", () => {
+      window.addEventListener("load", () => {
           canvas.width = canvas.offsetWidth;
           canvas.height = canvas.offsetHeight;
           setCanvasBackground();
@@ -213,7 +207,7 @@
           }
       }
 
-      undoLast.addEventListener("click", () => {
+       undoLast.addEventListener("click", () => {
   if (history.length >= 1) {
     const previousImage = history[history.length - 1];
     history.pop();

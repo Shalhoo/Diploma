@@ -9,7 +9,7 @@
   </head>
   <body style="margin-left: 10%; align-items: center; justify-content: center;">
      <header>
-                <a class = "mati"> <img src="svg/mati.svg" alt="mati"></a>
+                <a class = "mai"> <img src="svg/mai.png" alt="mai" style="height: 110px; width:70px; padding-top: 40px;"></a>
                 <h1>Перпендикулярность прямых и плоскостей</h1><br>
                 <h2>Через точку К провести прямую m, перпендикулярную к линии l при условии, что горизонтальная проекция искомой точки m1 задана.</h2>
         </header>
@@ -28,6 +28,12 @@
         </div>
         <div>
           <ul class="options in-line" style="list-style: none;">
+            <li class="option tool" id="line">
+              <span><img src="svg/line.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
+            <li class="option tool" id="dashedLine">
+              <span><img src="svg/dashedLine.svg" alt="" style="height: 32px; width: 32px;"></span>
+            </li>
             <li class="option tool" id="rectangle">
               <span><img src="svg/rectangle.svg" alt="" style="height: 32px; width: 32px;"></span>
             </li>
@@ -59,8 +65,8 @@
         </div>
         </div>
       <div class="row buttons">
+          <button class="undo-last">Отменить</button>
           <button class="clear-canvas">Очистить</button>
-          <button class="save-img">Сохранить</button>
         </div>
         </section>
       <section class="drawing-board">
@@ -81,7 +87,7 @@
       colorBtns = document.querySelectorAll(".colors .option"),
       colorPicker = document.querySelector("#color-picker"),
       clearCanvas = document.querySelector(".clear-canvas"),
-      saveImg = document.querySelector(".save-img"),
+      undoLast = document.querySelector(".undo-last"),
       ctx = canvas.getContext("2d");
 
       let prevMouseX, prevMouseY, snapshot,
@@ -89,23 +95,28 @@
       selectedTool = "pencil",
       pencilWidth = 3,
       selectedColor = "#000";
+      let history = [];
 
-      toolBtns.forEach(btn => {
-          btn.addEventListener("click", () => {
-              document.querySelector(".options .active").classList.remove("active");
-              btn.classList.add("active");
-              selectedTool = btn.id;
+      toolBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() { // добавление события клика ко всем опциям инструмента
+          //удаление класса «active» в случае переключения инструмента, и добавление класса «active» к активному
+          document.querySelector(".options .active").classList.remove("active");
+          btn.classList.add("active");
+          selectedTool = btn.id;
           });
       });
 
-      sizeSlider.addEventListener("change", () => pencilWidth = sizeSlider.value);
-      colorBtns.forEach(btn => {
-          btn.addEventListener("click", () => {
-              document.querySelector(".options .selected").classList.remove("selected");
-              btn.classList.add("selected");
-              selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
-          });
-      });
+      sizeSlider.addEventListener("change", function() {
+      pencilWidth = sizeSlider.value;
+    });
+
+    colorBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            document.querySelector(".options .selected").classList.remove("selected");
+            btn.classList.add("selected");
+            selectedColor = window.getComputedStyle(btn).getPropertyValue("background-color");
+        });
+    });
 
       colorPicker.addEventListener("change", () => {
           colorPicker.parentElement.style.background = colorPicker.value;
@@ -128,6 +139,22 @@
           setCanvasBackground();
       });
 
+      const drawLine = (e) => {
+      ctx.beginPath();
+      ctx.moveTo(prevMouseX, prevMouseY);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+    }
+
+        const drawDashed = (e) => {
+      ctx.beginPath();
+      ctx.moveTo(prevMouseX, prevMouseY);
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.setLineDash([5, 10]); // [dashLength, gapLength]
+      ctx.lineCap = 'butt';
+      ctx.stroke();
+    }
+
       const drawRect = (e) => {
           if(!fillColor.checked) {
               return ctx.strokeRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
@@ -149,6 +176,7 @@
           ctx.closePath();
           fillColor.checked ? ctx.fill() : ctx.stroke();
       }
+
       const startDraw = (e) => {
           isDrawing = true;
           prevMouseX = e.offsetX;
@@ -158,6 +186,7 @@
           ctx.strokeStyle = selectedColor;
           ctx.fillStyle = selectedColor;
           snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          history.push(snapshot); // добавляем изображения в историю
       }
 
       const drawing = (e) => {
@@ -167,21 +196,30 @@
               ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
               ctx.lineTo(e.offsetX, e.offsetY);
               ctx.stroke();
+          } else if(selectedTool === "dashedLine"){
+            drawDashed(e);
+          } else if(selectedTool === "line"){
+            ctx.setLineDash([]); // Сбрасываем настройки штриховой линии
+            drawLine(e);
           } else if(selectedTool === "rectangle"){
-              drawRect(e);
+            ctx.setLineDash([]);
+            drawRect(e);
           } else if(selectedTool === "circle"){
-              drawCircle(e);
+            ctx.setLineDash([]);
+            drawCircle(e);
           } else {
-              drawTriangle(e);
+            ctx.setLineDash([]);
+            drawTriangle(e);
           }
       }
 
-      saveImg.addEventListener("click", () => {
-          const link = document.createElement("a");
-          link.download = `${Date.now()}.jpg`;
-          link.href = canvas.toDataURL();
-          link.click();
-      });
+       undoLast.addEventListener("click", () => {
+  if (history.length >= 1) {
+    const previousImage = history[history.length - 1];
+    history.pop();
+    ctx.putImageData(previousImage, 0, 0);
+  }
+});
 
       canvas.addEventListener("mousedown", startDraw);
       canvas.addEventListener("mousemove", drawing);
