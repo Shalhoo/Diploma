@@ -209,13 +209,8 @@ const drawTriangle = (e) => {
 
 const startDraw = (e) => {
   isDrawing = true;
-  if (e.type === "mousedown") {
-    prevMouseX = e.offsetX;
-    prevMouseY = e.offsetY;
-  } else if (e.type === "touchstart") {
-    prevMouseX = e.touches[0].pageX - canvas.offsetLeft;
-    prevMouseY = e.touches[0].pageY - canvas.offsetTop;
-  }
+  prevMouseX = e.offsetX || e.touches[0].pageX - canvas.offsetLeft;
+  prevMouseY = e.offsetY || e.touches[0].pageY - canvas.offsetTop;
   ctx.beginPath();
   ctx.lineWidth = pencilWidth;
   ctx.strokeStyle = selectedColor;
@@ -226,32 +221,33 @@ const startDraw = (e) => {
 
 const drawing = (e) => {
   if (!isDrawing) return;
+  let clientX, clientY;
   if (e.type === "mousemove") {
-    prevMouseX = e.offsetX;
-    prevMouseY = e.offsetY;
+    clientX = e.offsetX;
+    clientY = e.offsetY;
   } else if (e.type === "touchmove") {
-    prevMouseX = e.touches[0].pageX - canvas.offsetLeft;
-    prevMouseY = e.touches[0].pageY - canvas.offsetTop;
+    clientX = e.touches[0].pageX - canvas.offsetLeft;
+    clientY = e.touches[0].pageY - canvas.offsetTop;
   }
   ctx.putImageData(snapshot, 0, 0);
   if (selectedTool === "pencil" || selectedTool === "eraser") {
     ctx.strokeStyle = selectedTool === "eraser"? "#fff" : selectedColor;
-    ctx.lineTo(prevMouseX, prevMouseY);
+    ctx.lineTo(clientX, clientY);
     ctx.stroke();
   } else if (selectedTool === "dashedLine") {
-    drawDashed({ clientX: prevMouseX, clientY: prevMouseY });
+    drawDashed({ clientX, clientY });
   } else if (selectedTool === "line") {
     ctx.setLineDash([]); 
-    drawLine({ clientX: prevMouseX, clientY: prevMouseY });
+    drawLine({ clientX, clientY });
   } else if (selectedTool === "rectangle") {
     ctx.setLineDash([]);
-    drawRect({ clientX: prevMouseX, clientY: prevMouseY });
+    drawRect({ clientX, clientY });
   } else if (selectedTool === "circle") {
     ctx.setLineDash([]);
-    drawCircle({ clientX: prevMouseX, clientY: prevMouseY });
+    drawCircle({ clientX, clientY });
   } else {
     ctx.setLineDash([]);
-    drawTriangle({ clientX: prevMouseX, clientY: prevMouseY });
+    drawTriangle({ clientX, clientY });
   }
 }
 
