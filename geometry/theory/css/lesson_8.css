@@ -1,0 +1,11 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+
+.off_display {
+    opacity:0;
+}
+.on_display {
+    opacity:1;
+}

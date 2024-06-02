@@ -1,0 +1,130 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:relative;
+    height:500px;
+/*    left: 50%;*/
+    
+}
+.rectangle_1 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(20deg);
+}
+.circle, .rectangle_2, .blue, .yellow, .A2_B2, .C2_D2{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.A2_B2, .C2_D2 {
+    stroke-dasharray: 600;
+    opacity:0;
+}
+.blue, .yellow {
+    opacity:0;
+}
+.appearance_line{
+    animation: 5s draw_line;
+    animation-fill-mode:forwards;
+}
+@keyframes draw_line {
+    0% {stroke-dashoffset: 600;
+        opacity:1;}
+    45% {stroke-dashoffset: 600;
+        opacity:1;}
+    100% {stroke-dashoffset: 0;   opacity:1;}
+}
+.appearance_color{
+    animation: 6s draw_color ease;
+    animation-fill-mode:forwards;
+}
+@keyframes draw_color {
+    50% {opacity:0}
+    100% {opacity:1}
+}
+.O1 {
+    position: absolute;
+    top:230px;
+    left:390px;
+    z-index:3;
+}
+.num_1{
+    position: absolute;
+    top:125px;
+    left:325px;
+    opacity:0;
+    z-index:3;
+}
+.num_2 {
+    position: absolute;
+    top:345px;
+    left:490px;
+    opacity:0;
+    z-index:3;
+}
+.num_3 {
+    position: absolute;
+    top:115px;
+    left:575px;
+    opacity:0;
+    z-index:3;
+}
+.num_4 {
+    position: absolute;
+    top:340px;
+    left:245px;
+    opacity:0;
+    z-index:3;
+}
+#point_1 {
+    position:absolute;
+    top:20px;
+    left:20px;
+    z-index: 3;
+}
+#A2 {
+    position: absolute;
+    top:-1px;
+}
+#point_3 {
+    position:absolute;
+    top:30px;
+    right:7px;
+    z-index: 3;
+}
+#point_2 {
+    position:absolute;
+    right:-5px;
+    z-index: 3;
+}
+#point_4 {
+    position:absolute;
+    top: 5px;
+    right:-37px;
+    z-index: 3;
+}
+
+.block {
+    animation: 3s point_on;
+    animation-fill-mode:forwards;
+}
+@keyframes point_on {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    40% {opacity:0;}
+    60% {opacity:1;}
+    80% {opacity:0;}
+    100% {opacity:1;}
+}
+.paused{
+    -webkit-animation-play-state:paused;
+    -moz-animation-play-state:paused;
+    -o-animation-play-state:paused;
+    animation-play-state:paused;
+}
+
+.on_display {
+    opacity:1;
+}

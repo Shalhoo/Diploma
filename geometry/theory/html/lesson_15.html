@@ -1,0 +1,176 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&amp;display=swap" rel="stylesheet">
+    <link type="image/png" sizes="32x32" rel="icon" href="svg/mati.svg">
+    <link rel="stylesheet" href="../css/file.css">
+    <link rel="stylesheet" href="../css/lesson_15.css">
+    <title>Пересечение конуса и цилиндра</title>
+</head>
+
+<body>
+    <div>
+        <header>
+             <a><img src="svg/mai.png" alt="mai" style="height: 70px; width:70px; padding-top: 20px; padding-left: 30px;"></a>
+            <h1> Приложение к рабочей тетради по начертательной геометрии </br>Пересечение конуса и цилиндра</h1> </div>
+    </header>
+    <div class="main_section">
+        <div class="animation">
+            <div class="paint">
+                <div class="figures" style="left:0;">
+                    <svg height="500" width="500" class="rectangle" id="rectangle">
+                        <rect x="75" y="150" width="350" height="200" style="fill:none;stroke:black;stroke-width:1" />
+                        <line x1="20" y1="250" x2="480" y2="250" style="stroke-dasharray: 20 5 2 5; fill:none;stroke:black;stroke-width:1" /> </svg>
+                    <svg height="500" width="500" class="triangle" id="triangle">
+                        <polygon points="250,350 0,50 500,50" style="fill:none;stroke:black;stroke-width:1" />
+                        <line x1="250" y1="30" x2="250" y2="370" style="stroke-dasharray: 20 5 2 5; fill:none;stroke:black;stroke-width:1" /> </svg>
+                    <svg height="500" width="700" class="green ind_18 off_display" style="stroke:none; stroke-width:1;fill:#A6DF7E; z-index:-3">
+                        <path d="M 162,210 C 185,270 244,339 299,349 356,349 383,345 427,340 L427,362 545,340 162,19 162,210" /> </svg>
+                    <svg height="500" width="700" class="blue ind_18 off_display" style="stroke:none; stroke-width:1;fill:#D1EEFF;z-index:-4">
+                        <path d="M 77,210 77,410 427,410 427,240 C 185,270 244,339 299,349 356,349 383,345 427,340 L427,362 545,340 162,19 162,210" />
+                        <path d="M 427,210 390,210,427,241" /> </svg>
+                </div>
+                <div class="O2"> <a id="O2">O2</a>
+                    <svg height="10" width="10" class="grey_point" id="point_1">
+                        <circle cx="5" cy="5" r="3" style="fill:#7D7D7D;stroke:black;stroke-width:none" /> </svg>
+                </div>
+                <svg width="500" height="500" class=" off_display ind_3 ind_4 circle_1">
+                    <circle cx="250" cy="250" r="150" stroke="#42ACC0" stroke-width="1" fill="none" /> </svg>
+                <svg width="500" height="500" class=" off_display ind_4 ind_5 ind_10 circle_2" stroke="#42ACC0" stroke-width="1" fill="none">
+                    <circle cx="250" cy="250" r="150" /> </svg>
+                <svg width="500" height="500" class="ind_4 ind_5 ind_10 blue_line_1 off_display" style="position:absolute; left:300px; top:0" stroke="#42ACC0" stroke-width="1" fill="none">
+                    <polyline points="31,164,250,350" /> </svg>
+                <svg width="500" height="500" class="ind_4 ind_5 ind_10 blue_line_2 off_display" style="position:absolute; left:300px; top:0" stroke="#42ACC0" stroke-width="1" fill="none">
+                    <polyline points="225,190,225,390" /> </svg> <a class="l2 ind_4 ind_5 ind_10 p_12 off_display" style="position:absolute; left:530px; top:310px;">1</a> <a class=" off_display l2 ind_4 ind_5 ind_10 p_12" style="position:absolute; left:536px; top:313px; scale:0.6">2</a>
+                <svg class=" off_display l2 ind_4 ind_5 ind_10 grey_point c_12" height="10" width="10">
+                    <circle cx="5" cy="5" r="3" style="fill:white;stroke:#42ACC0;stroke-width:2" /> </svg> <a class="off_display A2 ind_10 ind_13 ind_15 ">A2</a>
+                <svg class="  off_display ind_10 ind_13 ind_15 c_A2" height="10" width="10" class="grey_point" id="point_2">
+                    <circle cx="5" cy="5" r="3" style="fill:white;stroke:#C00E0E;stroke-width:2" /> </svg> 
+                <a class=" off_display B2 ind_12 ind_13 ind_15" style="position:absolute; top:305px; left:390px">B2</a>
+                <svg class=" off_display B2 ind_12 ind_13 ind_15 green_c" width="500" height="500" class="circle_3" stroke="#59CD34" stroke-width="1" fill="none">
+                    <circle cx="250" cy="250" r="100" /> </svg>
+                <svg class=" off_display B2 ind_12 ind_13 ind_15 green_lines" width="500" height="500" stroke="#59CD34" stroke-width="1" fill="none">
+                    <line x1="250" y1="150" x2="250" y2="350" /> </svg>
+                <svg class=" off_display B2 ind_12 ind_13 ind_15 green_lines" width="500" height="500" stroke="#59CD34" stroke-width="1" fill="none">
+                    <line x1="168" y1="194" x2="319" y2="322" /> </svg>
+                <svg class=" off_display B2 ind_12 ind_13 ind_15 c_B2" width="500" height="500" stroke="#59CD34" stroke-width="1" fill="none">
+                    <circle cx="250" cy="263" r="3" style="fill:white;stroke:#59CD34;stroke-width:2;" /> </svg> <a class="C2 C_2 off_display ind_15" style="position: absolute; left: 595; top: 295px">C2</a>
+                <svg class="  off_display  orange_c C2 ind_15" width="500" height="500" stroke="#FFAC12" stroke-width="1" fill="none">
+                    <mask id="msk2">
+                        <rect width="100%" height="100%" fill="white" />
+                        <g fill="black">
+                            <rect x="0" y="100" width="328" height="400" style="transform-origin: center center;transform: rotate(120deg)" /> </g>
+                    </mask>
+                    <circle style="transform-origin: center center;transform: rotate(-124deg)" cx="250" cy="250" r="209" mask="url(#msk2)" stroke-dasharray="1400" /> </svg>
+                <svg class=" off_display orange_line C2 ind_15" width="500" height="500" stroke="#FFAC12" stroke-width="1" fill="none">
+                    <line x1="167" y1="57" x2="454" y2="299" /> </svg>
+                <svg class="off_display c_C2 C2 ind_15" width="500" height="500" stroke="#FFAC12" stroke-width="1" fill="none">
+                    <circle cx="432" cy="280" r="3" style="fill:white;stroke:#FFAC12;stroke-width:2;" /> </svg>
+                <svg class=" off_display C2_l2 ind_15 pink_c" width="500" height="500" stroke="#F16E96" stroke-width="1" fill="none">
+                    <circle cx="250" cy="250" r="175" mask="url(#msk2)" stroke-dasharray="1400" style="transform-origin: center center;transform: rotate(-124deg)" /> </svg>
+                <svg class=" off_display C2_l2 ind_15 pink_lines" width="500" height="500" stroke="#F16E96" stroke-width="1" fill="none">
+                    <line x1="393" y1="150" x2="393" y2="350" /> </svg>
+                <svg class=" off_display C2_l2 ind_15 pink_lines" width="500" height="500" stroke="#F16E96" stroke-width="1" fill="none">
+                    <line x1="167" y1="95" x2="416" y2="305" /> </svg>
+                <svg class=" off_display C2_l2 ind_15 pink_p" width="500" height="500" stroke="#F16E96" stroke-width="1" fill="none">
+                    <circle cx="393" cy="285" r="3" style="fill:white;stroke:#F16E96;stroke-width:2;" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_c" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <circle cx="250" cy="250" r="115" style="transform-origin: center center; transform: rotate(70deg);" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_lines" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <line x1="194" y1="150" x2="194" y2="350" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_lines" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <line x1="307" y1="150" x2="307" y2="350" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_lines" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <line x1="168" y1="170" x2="342" y2="318" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_p" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <circle cx="194" cy="192" r="3" style="fill:white;stroke:#620DAC;stroke-width:2;" /> </svg>
+                <svg class="off_display A2_B2 ind_15 purple_p" width="500" height="500" stroke="#620DAC" stroke-width="1" fill="none">
+                    <circle cx="307" cy="288" r="3" style="fill:white;stroke:#620DAC;stroke-width:2;" /> </svg>
+                <svg class=" off_display  red_line ind_16 " width="500" height="500" id="red_line" stroke="red" stroke-width="3" fill="none" z-index="20">
+                    <path d="M 161,110 C 185,170 244,239 299,249 356,249 383,245 427,240">
+                </svg>
+                <svg class=" off_display   red_line ind_17 ind_18" width="500" height="500" id="red_line" stroke="red" stroke-width="2" fill="none">
+                    <polyline points="427,262 427,240" /> </svg>
+                <svg class="  off_display  red_line ind_17 ind_18" width="500" height="500" id="red_line" stroke="red" stroke-width="2" fill="none">
+                    <polyline points="390,110 427,141" /> </svg>
+                <div class="text box_animate_2" id="17">
+                    <div class="inf">Выделим цветом видимые части цилиндра и конуса.</div>
+                </div>
+                <div class="text box_animate_2" id="16">
+                    <div class="inf">Обведем окончательно заданные поверхности с учетом видимости.</div>
+                </div>
+                <div class="text box_animate_2" id="15">
+                    <div class="inf">По промежуточным и опорным точкам построим изображение искомой линии пересечения.</div>
+                </div>
+                <div class="text box_animate_2" id="14">
+                    <div class="inf">По тому же алгоритму построим необходимое число других промежуточных точек.</div>
+                </div>
+                <div class="text box_animate_2" id="13">
+                    <div class="inf">Вернемся к первой промежуточной точке 1(1₂).</div>
+                </div>
+                <div class="text box_animate_2" id="12">
+                    <div class="inf">Третья опорная точка C(C₂) - результат максимальной сферы. Она проходит через торец цилиндра (дальше - некуда) и пересекает конус.</div>
+                </div>
+                <div class="text box_animate_2" id="11">
+                    <div class="inf">Вторая опорная точка B(B₂) - результат применения минимальной секущей сферы. Она вписана в цилиндрическую поверхность и пересекает конус.</div>
+                </div>
+                <div class="text box_animate_2" id="10">
+                    <div class="inf">Одна из опорных точек - точка пересечения главных меридианов: A(A₂).</div>
+                </div>
+                <div class="text box_animate_2" id="9">
+                    <div class="inf">4. Обвести окончательно цилиндр и конус с учетом видимости.</br>5. Выделить цветом видимые части заданных поверхностей.</div>
+                </div>
+                <div class="text box_animate_2" id="8">
+                    <div class="inf">3. По точкам построить проекцию искомой линии пересечения.</div>
+                </div>
+                <div class="text box_animate_2" id="7">
+                    <div class="inf">2. Построить необходимое число промежуточных точек по типу точки 1(1₂) в пределах области применения сферических посредников.</div>
+                </div>
+                <div class="text box_animate_2" id="6">
+                    <div class="inf">1. Определить опорные точки линии пересечения: очерковые точки и точки на минимальных и максимальных секущих сферах.</div>
+                </div>
+                <div class="text box_animate_2" id="5">
+                    <div class="inf">Вернемся к первому кадру и напомним последовательность решения задачи:</div>
+                </div>
+                <div class="text box_animate_2" id="4">
+                    <div class="inf">Точка пересечения проекций этих окружностей 1(1₂) принадлежит изображению искомой линии.</div>
+                </div>
+                <div class="text box_animate_2" id="3">
+                    <div class="inf">Для примера, такая произвольная сфера пересекает цилиндр и конус по окружностям с вырожденными в прямую линию проекциями.</div>
+                </div>
+                <div class="text box_animate_2" id="2">
+                    <div class="inf">Задача решается способом концентрических секущих сфер с общим центром в точке O(O₂)</div>
+                </div>
+                <div class="exercise box_animate_1" id="1">
+                    <div class="inf">Построить линию пересечения цилиндра и конуса вращения, если оси этих поверхностей пересекаются в точке O(O₂). Видимые части поверхностей выделить цветом.</div>
+                </div>
+            </div>
+            <div class="control">
+                <a class="point"> <img src="svg/again.svg" alt="again" id="again" style="position: absolute; top: 385px; left: 90px"></a>
+                <a class="point"> <img src="svg/back.svg" alt="back" id="back" style="position: absolute; top: 390px; left: 175px"></a>
+                <a class="point"> <img src="svg/start.svg" alt="start" id="start" style="position: absolute; top: 390px; left: 255px"></a>
+                <a class="point"> <img src="svg/play.svg" alt="play" id="play" style="position: absolute; top: 390px; left: 255px"></a>
+                <a class="point"> <img src="svg/forward.svg" alt="forward" id="forward" style="position: absolute; top: 390px; left: 335px"></a>
+            </div>
+            <div class="control_click">
+                <a class="point"> <img src="svg/again_click.svg" alt="again_clicked" id="again_click" style="position: absolute; top: 385px; left: 90px"></a>
+                <a class="point"> <img class="clicked" src="svg/back_click.svg" alt="back" id="back_click" style="position: absolute; top: 390px; left: 175px"></a>
+                <a class="point"> <img class="clicked" src="svg/start_click.svg" alt="start" id="start_click" style="position: absolute; top: 390px; left: 255px"></a>
+                <a class="point"> <img class="clicked" src="svg/play_click.svg" alt="play" id="play_click" style="position: absolute; top: 385px; left: 255px"></a>
+                <a class="point"> <img class="clicked" src="svg/forward_click.svg" alt="forward" id="forward_click" style="position: absolute; top: 390px; left: 335px"></a>
+            </div>
+        </div>
+        <button onclick="document.location='index.html'" type="button" class="index_button">На главную</button>
+        <br>
+        <script src="../js/main.js"></script>
+        <script src="../js/switch_animation.js"></script>
+        <script src="../js/variables.js"></script>
+        <script src="../js/lesson_15.js"></script>
+    </div>
+</body>
+
+</html>

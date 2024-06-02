@@ -1,0 +1,273 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&amp;display=swap" rel="stylesheet">
+        <link type="image/png" sizes="32x32" rel="icon" href="svg/mati.svg">
+    <link rel="stylesheet" href="../css/file.css">
+    <link rel="stylesheet" href="../css/lesson_13.css">
+    <title>Линия на торе</title>
+</head>
+<body>
+<div>
+    <header>
+             <a><img src="svg/mai.png" alt="mai" style="height: 70px; width:70px; padding-top: 20px; padding-left: 30px;"></a>
+            <h1> Приложение к рабочей тетради по начертательной геометрии </br>Линия на торе</h1>
+        </div>
+    </header>
+    <div class= "main_section">
+<div class = "animation">
+    <div class = "paint">
+        <div class = "figures">
+            <svg height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <defs>
+                  <clipPath id="cut-off-bottom">
+                    <rect x="0" y="300" width="1000" height="700"/>
+                  </clipPath>
+                </defs>
+                <circle cx="180" cy="340" r="130" clip-path="url(#cut-off-bottom)"/>
+            </svg>
+            <svg height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <path d="M 180,30 C 140,50 70,110 50,210"/>
+                <path d="M 180,30 C 220,50 290,110 310,210"/>
+                <polyline points="50,210 310,210"/>
+                <polyline points="180,340 206,375" style="stroke-width:1;"/>
+                <polyline points="180,10 180,480" style="stroke-dasharray: 20 5 2 5; stroke-width:1;"/>
+                <polyline points="10,340 350,340" style="stroke-dasharray: 20 5 2 5; stroke-width:1;"/>
+                <polyline points="100,443 293,320" style=" stroke-width:1;"/>
+            </svg>
+            <svg class = "c_B1" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <circle cx = "293" cy = "320" r = "3" style="fill:#B9B9B9;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "c_K1" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <circle cx = "206" cy = "375" r = "3" style="fill:#B9B9B9;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "c_M1" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <circle cx = "262" cy = "340" r = "3" style="fill:#B9B9B9;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "c_A1" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute">
+                <circle cx = "100" cy = "443" r = "3" style="fill:#B9B9B9;stroke:black;stroke-width:1" />
+            </svg>
+            <a class = "A_1" style = "position: absolute; top:440px; left: 80px; scale: 0.8;">A1</a>
+            <a class = "B_1" style = "position: absolute; top:305px; left: 273px; scale: 0.8;">B1</a>
+            <a class = "K_1" style = "position: absolute; top:370px; left: 212px; scale: 0.8;">K1</a>
+            <a class = "M_1" style = "position: absolute; top:345px; left: 260px; scale: 0.8;">M1</a>
+            <svg height="600" width="600" style="stroke:black;fill:none;stroke-width:1;position:absolute">
+                <path d="M 56,300 C 100,280 130,320 190,300 S 250,320 304,300"/>
+            </svg>
+        </div>
+        <svg class = "ind_4 off_display line_A1_A2" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute; left:235px">
+            <polyline points="100,441 100,210" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_4 off_display c_A2" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute; left:235px">
+            <circle cx = "100" cy = "210" r = "3" style="fill:#00ACFF;stroke:black;stroke-width:1" />
+        </svg>
+        <a class = "ind_4 off_display A_2" style = "position: absolute; top:210px; left: 310px; scale: 0.8; color:#00ACFF">A2</a>
+
+        <svg class = "ind_5 off_display line_M1_M2" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute; left:235px">
+            <polyline points="262,337 262,103" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_5 off_display c_M2" height="600" width="600" style="stroke:black;fill:none;stroke-width:2;position:absolute; left:235px">
+            <circle cx = "262" cy = "103" r = "3" style="fill:#00ACFF;stroke:black;stroke-width:1" />
+        </svg>
+        <a class = "ind_5 off_display M_2" style = "position: absolute; top:82px; left: 495px; scale: 0.8; color:#00ACFF">M2</a>
+        <svg class = "ind_7 off_display green_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="135,62 224,62" style=" stroke-width:1;stroke:#00C700;"/>
+            <!-- <circle cx = "206" cy = "375" r = "3" style="fill:#B9B9B9;stroke:black;stroke-width:1" /> -->
+        </svg> 
+        <svg class = "ind_7 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="224,340 224,290" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_7 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="224,112 224,62" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_7 off_display green_circle" transform="rotate(90 60 60)" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "340" cy = "540" r = "44" style="fill:none;stroke:#00C700;stroke-width:1" />
+           </svg>
+        <svg class = "ind_8 off_display c_K2" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "206" cy = "62" r = "3" style="fill:#00C700;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_8 off_display line_K1_K2" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px; z-index:-2">
+            <polyline points="206,373 206,62" style=" stroke-width:1;"/>
+        </svg>
+        <a class = "ind_8 off_display K_2" style = "position: absolute; top:35px; left: 445px; scale: 0.8; color:#00C700">K2</a>
+            <svg class = "ind_9 off_display green_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <defs>
+                <clipPath id="cut-off-bottom1">
+                  <rect x="0" y="340" width="700" height="700" style="transform:rotate(-12deg)"/>
+                </clipPath>
+              </defs>
+            <circle cx = "180" cy = "340" r = "115" style="fill:none;stroke:#00C700;stroke-width:1" clip-path="url(#cut-off-bottom1)"/>
+        </svg>
+            <svg class = "ind_9 off_display red_el" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <polyline points="288,158 298,166" style=" stroke-width:2;stroke:#F90C00;"/>
+                <polyline points="298,158 288,166" style=" stroke-width:2;stroke:#F90C00;"/>
+            </svg>
+            <svg class = "ind_9 off_display green_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <polyline points="65,162 295,162" style=" stroke-width:1;stroke:#00C700"/>
+            </svg>
+            <svg class = "ind_9 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <polyline points="296,340 296,162" style=" stroke-width:1;"/>
+            </svg>
+            <svg class = "ind_9 off_display line_B1_B2" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px; z-index: -1">
+                <polyline points="293,318 293,162" style=" stroke-width:1;"/>
+            </svg>
+            <svg class = "ind_9 off_display c_11" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <circle cx = "114" cy = "434" r = "2" style="fill:#00C700;stroke:black;stroke-width:1" />
+            </svg>
+            <a class = "ind_9 off_display B_2" style = "position: absolute; top:143px; left: 507px; scale: 0.8;color:#00C700">B2</a>
+            <a class = "ind_9 off_display el_11" style = "position: absolute; top:423px; left: 357px;color:#00C700">1</a>
+            <a class = "ind_9 off_display el_11" style = "position: absolute; top:427px; left: 362px; scale: 0.6;color:#00C700">1</a>
+            <svg class = "ind_10 off_display line_11_12" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <polyline points="114,432 114,162" style=" stroke-width:1;"/>
+            </svg>
+            <svg class = "ind_10 off_display c_12" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <circle cx = "114" cy = "162" r = "2" style="fill:#00C700;stroke:black;stroke-width:1" />
+            </svg>
+            <a class = "ind_10 off_display el_12" style = "position: absolute; top:140px; left: 335px;color:#00C700">1</a>
+            <a class = "ind_10 off_display el_12" style = "position: absolute; top:144px; left: 340px; scale: 0.6;color:#00C700">2</a>
+        <svg class = "ind_11 off_display purple_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "180" cy = "340" r = "95" style="fill:none;stroke:#A13DD5;stroke-width:1" clip-path="url(#cut-off-bottom1)"/>
+        </svg> 
+        <svg class = "ind_11 off_display purple_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "180" cy = "340" r = "57" style="fill:none;stroke:#A13DD5;stroke-width:1" clip-path="url(#cut-off-bottom1)"/>
+        </svg> 
+        <svg class = "ind_11 off_display purple_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+             <circle cx = "180" cy = "340" r = "73" style="fill:none;stroke:#A13DD5;stroke-width:1" clip-path="url(#cut-off-bottom1)"/>
+        </svg>
+            <svg class = "ind_11 off_display red_el" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <!-- <polyline points="133,420 133,122" style=" stroke-width:1;"/> -->
+                <polyline points="270.5,118 280.5,124" style=" stroke-width:2;stroke:#F90C00;"/>
+                <polyline points="280.5,118 270.5,124" style=" stroke-width:2;stroke:#F90C00;"/>
+        </svg>
+            <svg class = "ind_11 off_display red_el" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+               <polyline points="247,86 257,94" style=" stroke-width:2;stroke:#F90C00;"/>
+                <polyline points="257,86 247,94" style=" stroke-width:2;stroke:#F90C00;"/>
+            </svg>        
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "274.5" cy = "331.5" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg> 
+        <svg class = "ind_11 off_display purple_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="85,122 274.5,122" style=" stroke-width:1;stroke:#A13DD5"/>
+        </svg>  
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "253" cy = "346" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>          
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "234" cy = "358" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>        
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "133" cy = "422" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>    
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="133,420 133,122" style=" stroke-width:1;"/>
+        </svg> 
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "133" cy = "122" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="274.5,332 274.5,122" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_11 off_display purple_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="253,90 107,90" style=" stroke-width:1;stroke:#A13DD5"/>
+        </svg> 
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "154" cy = "408" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="154,406 154,90" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "154" cy = "90" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="253,342 253,90" style=" stroke-width:1;"/>
+        </svg> 
+        <svg class = "ind_11 off_display purple_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="234,70 127,70" style=" stroke-width:1;stroke:#A13DD5"/>
+        </svg>
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "173" cy = "396.5" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="173,394 173,70" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_11 off_display purple_mini_circle" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <circle cx = "173" cy = "70" r = "2" style="fill:#A13DD5;stroke:black;stroke-width:1" />
+        </svg>
+        <svg class = "ind_11 off_display vert_line" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+            <polyline points="234,355 234,70" style=" stroke-width:1;"/>
+        </svg>
+        <svg class = "ind_11 off_display red_el" height="600" width="600" style="stroke:black;fill:none;position:absolute; left:235px">
+                <polyline points="240,66 230,74" style=" stroke-width:2;stroke:#F90C00;"/>
+                <polyline points="230,66 240,74" style=" stroke-width:2;stroke:#F90C00;"/>
+        </svg>
+            <svg class = "ind_12 off_display red_line" height="600" width="600" style="stroke:red;fill:none;position:absolute;top:-25px; left:235px;scale:0.8;stroke-width:3">
+                <path d="M 180,30 C 140,50 70,110 50,220"/>
+                <path d="M 180,30 C 220,50 290,110 310,220"/>
+            </svg>
+        <div class = "text box_animate_2" id = "11" >
+            <div class = "inf">Через полученные точки проводим горизонтальную проекцию линии m₁ с учетом видимости её отдельных участков.</div>
+            </div>
+        <div class = "text box_animate_2" id = "10" >
+            <div class = "inf">Повторим операцию ещё для ряда промежуточных точек. Отмечая видимость их проекций.</div>
+            </div>
+        <div class = "text box_animate_2" id = "9" >
+            <div class = "inf">При этом на вспомогательной окружности окажется ещё одна точка - промежуточная точка 1.</div>
+            </div>
+        <div class = "text box_animate_2" id = "8" >
+            <div class = "inf">Используем тот же алгоритм для построения фронтальной невидимой проекции точки B(B₂).</div>
+            </div>
+        <div class = "text box_animate_2" id = "7" >
+            <div class = "inf">...то недостающая проекция точки окажется на фронтальной проекции этой окружности.</div>
+            </div>
+        <div class = "text box_animate_2" id = "6" >
+            <div class = "inf">Если на торе через точку K провести окружность...</div>
+            </div>
+        <div class = "text box_animate_2" id = "5" >
+            <div class = "inf">Точка K - ближайшая точка к вершине. То есть: самая высокая на линии.</div>
+            </div>
+        <div class = "text box_animate_2" id = "4" >
+            <div class = "inf">Точка M - на главном меридиане. Очерковая проекция M₂ станет границей перемены видимости изображения линии.
+</div>
+            </div>
+        <div class = "text box_animate_2" id = "3">
+            <div class = "inf">Точка A - на основании тора.</div>
+            </div>
+        <div class = "text box_animate_2" id = "2">
+            <div class = "inf">В первую очередь определяются опорные точки по их горизонтальным проекциям: A₁, K₁, M₁ и B₁.
+</div>
+            </div>
+        
+        <div class = "exercise box_animate_1" id = "1">
+            <div class = "inf">Построить недостающую проекцию линии AB на закрытом торе. Обвести чертеж с учетом видимости.</div>
+            </div>
+        </div>
+    <div class = "control">
+        <a class = "point"> <img src="svg/again.svg" alt="again" id="again" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point"> <img src="svg/back.svg" alt="back" id="back" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img src="svg/start.svg" alt="start" id="start" style = "position: absolute; top: 390px; left: 255px"></a>
+    
+    <a class = "point"> <img src="svg/play.svg" alt="play" id="play" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img src="svg/forward.svg" alt="forward" id="forward" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+    <div class = "control_click"> <a class = "point">
+        <img src="svg/again_click.svg" alt="again_clicked" id="again_click" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point" > <img class = "clicked" src="svg/back_click.svg" alt="back" id="back_click" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/start_click.svg" alt="start" id="start_click" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/play_click.svg" alt="play" id="play_click" style = "position: absolute; top: 385px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/forward_click.svg" alt="forward" id="forward_click" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+</div>
+<button onclick="document.location='index.html'" type="button" class="index_button" >На главную</button><br>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--    <script src="js/jquery-3.6.0.min.js"></script>-->
+    <script src="../js/main.js"></script>
+    <script src="../js/switch_animation.js"></script>
+    <script src="../js/variables.js"></script>
+    <script src="../js/lesson_13.js"></script>
+</div>
+
+</body></html>
+

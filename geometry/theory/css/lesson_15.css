@@ -1,0 +1,123 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:relative;
+    height:500px;
+}
+.rectangle{
+    position: absolute;
+   top:40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    
+}
+.red_line{
+    position: absolute;
+    top: 80px;
+    left: 20%;
+}
+ .green, .blue {
+    position: absolute;
+    top: -20px;
+    left: 20%;
+    opacity: 0,5;
+}
+.triangle{
+    position: absolute;
+   top:63px;
+    left: 144px;
+    transform:rotate(40deg);
+    
+}
+.circle_1{
+    position: absolute;
+    top:40px;
+     left: 163px;
+    transform: rotate(226deg);
+    stroke-dasharray:50 1000;
+    
+}
+.circle_2{
+    position: absolute;
+    top:40px;
+     left: 163px;
+    transform:rotate(226deg);
+    stroke-dasharray:500 1000;
+    
+}
+
+.B2 {
+    position: absolute;
+   top:40px;
+    left: 163px;
+    
+    color:#59CD34;
+}
+#B2 {
+    top: 265px;
+    left:230px;
+}
+.C2 {
+    position: absolute;
+   top:40px;
+    left: 163px;
+    
+}
+/* #C2 {
+    position: absolute;
+    top: 285px;
+    left:415px;
+    color:#FFAC12;
+} */
+.C2_l2 {
+    position: absolute;
+    top: 40px;
+    left:160px;
+    color:#FFAC12;
+}
+.A2_B2 {
+    position: absolute;
+    top: 40px;
+    left:160px;
+    color:#FFAC12;
+}
+.O2 {
+    position: absolute;
+    top: 285px;
+    left:408px;
+}
+#O2 {
+    top:-20px;
+    left:10px;
+}
+.l2 {
+    position: absolute;
+    top: 324px;
+    left:520px;
+    color:#42ACC0;
+}
+#l2 {
+    left:-10px;
+}
+.A2 {
+    position: absolute;
+    top: 170px;
+    left:320px;
+    color:#C00E0E;
+}
+.c_A2 {
+    position: absolute;
+    top: 185px;
+    left:325px;
+    color:#C00E0E;
+}
+
+.on_display {
+    opacity:1;
+}
+
+.off_display {
+    opacity:0;
+}

@@ -1,0 +1,24 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:absolute;
+    height:500px;
+    left: 1%;
+    top: -30px;
+}
+.elements {
+    scale: 1.2;
+}
+#red_polyline {
+    position: absolute;
+    top: 10px;
+    right: -466px;
+}
+.off_display {
+    opacity:0;
+}
+.on_display {
+    opacity:1;
+}

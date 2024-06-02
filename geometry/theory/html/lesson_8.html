@@ -1,0 +1,201 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&amp;display=swap" rel="stylesheet">
+        <link type="image/png" sizes="32x32" rel="icon" href="svg/mati.svg">
+    <link rel="stylesheet" href="../css/file.css">
+        <link rel="stylesheet" href="../css/lesson_8.css">
+    <title>Пересечение прямой и плоскости</title>
+</head>
+<body>
+<div>
+    <header>
+             <a><img src="svg/mai.png" alt="mai" style="height: 70px; width:70px; padding-top: 20px; padding-left: 30px;"></a>
+            <h1> Приложение к рабочей тетради по начертательной геометрии </br>Пересечение прямой и плоскости</h1>
+        </div>
+    </header>
+    <div class= "main_section">
+<div class = "animation">
+    <div class = "paint">
+        <div class = "figures" style=" position: absolute; top: 40px;">
+            <svg height="500" width="500" style="stroke:black; stroke-width:1;fill:none; position: absolute; left:200px;">
+            <polyline points="110,40 310,140 40,195 110,40"/>
+            <polyline points="45,270 310,250 110,360 45,270"/>
+            <polyline id="B2_B1" points="310,140 310,250"/>
+            <polyline points="15,230 15,27"/>
+            </svg>
+            <svg class = "l_2" height="500" width="500" style="stroke:black; stroke-width:1;fill:none; position: absolute; left:200px;">
+                <polyline points="15,27 88,90"/>
+                <polyline points="174,167 194,185"/>
+            </svg>
+            <svg class = "dash_l2 l_2" height="500" width="500" style="stroke:black; stroke-width:1;fill:none; position: absolute; left:200px;">
+                <polyline points="15,27 88,90"/>
+                <polyline points="88,90 174,167" style="stroke-dasharray: 5 5;"/>
+                <polyline points="174,167 194,185"/>
+            </svg>
+            <svg class = "l_1" height="500" width="500" style="stroke:black; stroke-width:1;fill:none; position: absolute; left:200px;">
+                <polyline points="63,269 15,230 "/>
+                <polyline points="152,337 173,353"/>
+            </svg>
+            <svg class = "dash_l1" height="500" width="500" style="stroke:black; stroke-width:1;fill:none; position: absolute; left:200px;">
+                <polyline points="63,269 152,337" style="stroke-dasharray: 5 5;"/>
+            </svg>
+            <a style = "position: absolute; top:15px; left: 310px;">A2</a>
+            <a style = "position: absolute; top:130px; left: 514px;">B2</a>
+            <a style = "position: absolute; top:240px; left: 514px;">B1</a>
+            <a style = "position: absolute; top:178px; left: 218px;">C2</a>
+            <a style = "position: absolute; top:258px; left: 218px;">C1</a>
+            <a style = "position: absolute; top:360px; left: 308px;">A1</a>
+            <a style = "position: absolute; top:330px; left: 373px;">l1</a>
+            <a style = "position: absolute; top:190px; left: 390px;">l2</a>
+            </div>
+        <div class = "ind_3 off_display sum_2">
+            <a style = "position: absolute; top:230px; left: 404px;"> = Σ2</a>
+        </div>
+        <svg class = "ind_5 off_display line_11_12" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+            <polyline points="88,90 88,331"/>
+        </svg>
+            <svg class = "ind_5 off_display line_22_21" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <polyline points="174,167 174,260"/>
+            </svg>
+            <svg class = "ind_5 off_display line_11_21" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <polyline points="88,331 174,260"/>
+            </svg>
+            <svg class = "ind_5 off_display c_22" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "174" cy = "167" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_5 off_display c_21" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "174" cy = "260" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_5 off_display c_11" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "88" cy = "331" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_5 off_display c_12" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "88" cy = "90" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <a class = "ind_5 off_display el_11" style = "color:blue; position: absolute; top: 373px; left: 283px;">1</a>
+            <a class = "ind_5 off_display el_11" style = "color:blue; position: absolute; top: 376px; left: 290px; scale: 0.6;">1</a>
+            <a class = "ind_5 off_display el_21" style = "color:blue; position: absolute; top: 280px; left: 383px;">2</a>
+            <a class = "ind_5 off_display el_21" style = "color:blue; position: absolute; top: 283px; left: 390px; scale: 0.6;">1</a>
+            <a class = "ind_5 off_display el_22" style = "color:blue; position: absolute; top: 185px; left: 383px;">2</a>
+            <a class = "ind_5 off_display el_22" style = "color:blue; position: absolute; top: 188px; left: 390px; scale: 0.6;">2</a>
+            <a class = "ind_5 off_display el_12" style = "color:blue; position: absolute; top: 120px; left: 300px;">1</a>
+            <a class = "ind_5 off_display el_12" style = "color:blue; position: absolute; top: 123px; left: 307px; scale: 0.6;">2</a>
+            <a class = "ind_5 off_display el_m1" style = "color:black; position: absolute; top: 350px; left: 343px;">m</a>
+            <a class = "ind_5 off_display el_m1" style = "color:black; position: absolute; top: 353px; left: 354px; scale: 0.6;">1</a>
+            <a class = "ind_5 off_display el_m2" style = "color:black; position: absolute; top: 230px; left: 443px;"> = m</a>
+            <a class = "ind_5 off_display el_m2" style = "color:black; position: absolute; top: 233px; left: 470px; scale: 0.6;">2</a>
+       
+            <svg class = "ind_7 off_display c_P1" height="500" width="500" style="stroke:blue; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "115" cy = "309" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+                <a class = "ind_7 off_display el_P1" style = "color:black; position: absolute; top: 329px; left: 310px;">P</a>
+                <a class = "ind_7 off_display el_P1" style = "color:black; position: absolute; top: 332px; left: 317px; scale: 0.6;">1</a>
+     
+                <svg class = "ind_9 off_display line_P1_P2" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;z-index:-1;">
+                    <polyline points="115,306 115,115" style="stroke:red;"/>
+                </svg>
+                <svg class = "ind_9 off_display c_P2" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                    <circle cx = "115" cy = "114" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+                </svg>
+            <svg class = "ind_9 off_display line_32_42" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <polyline points="152,61 152,336"/>
+            </svg>
+            <svg class = "ind_9 off_display line_52_51" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <polyline points="87,93 87,289"/>
+            </svg>
+            <svg class = "ind_9 off_display c_51" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "88" cy = "289" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_9 off_display c_32" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "152" cy = "147" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_9 off_display c_42" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "152" cy = "61" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <svg class = "ind_9 off_display c_41" height="500" width="500" style="stroke:#00CC00; stroke-width:1;fill:none; position: absolute; left:200px; top: 40px;">
+                <circle cx = "152" cy = "336" r = "3" style="fill:gray;stroke:black;stroke-width:1" />
+            </svg>
+            <a class = "ind_9 off_display el_51" style = "color:#00CC00; position: absolute; top: 329px; left: 270px;">5</a>
+            <a class = "ind_9 off_display el_51" style = "color:#00CC00; position: absolute; top: 332px; left: 277px; scale: 0.6;">1</a>
+            <a class = "ind_9 off_display el_52" style = "color:#00CC00; position: absolute; top: 120px; left: 317px;"> = (5</a>
+            <a class = "ind_9 off_display el_52" style = "color:#00CC00; position: absolute; top: 123px; left: 345px; scale: 0.6;">2</a>
+            <a class = "ind_9 off_display el_52" style = "color:#00CC00; position: absolute; top: 120px; left: 350px;">)</a>
+            <a class = "ind_9 off_display el_42" style = "color:#00CC00; position: absolute; top: 77px; left: 347px;">4</a>
+            <a class = "ind_9 off_display el_42" style = "color:#00CC00; position: absolute; top: 80px; left: 354px; scale: 0.6;">2</a>
+            <a class = "ind_9 off_display el_32" style = "color:#00CC00; position: absolute; top: 187px; left: 337px;">3</a>
+            <a class = "ind_9 off_display el_32" style = "color:#00CC00; position: absolute; top: 190px; left: 344px; scale: 0.6;">2</a>
+            <a class = "ind_9 off_display el_31" style = "color:#00CC00; position: absolute; top: 387px; left: 337px;">(3</a>
+            <a class = "ind_9 off_display el_31" style = "color:#00CC00; position: absolute; top: 390px; left: 350px; scale: 0.6;">1</a>
+            <a class = "ind_9 off_display el_31" style = "color:#00CC00; position: absolute; top: 387px; left: 355px;">) = 4</a>
+            <a class = "ind_9 off_display el_31" style = "color:#00CC00; position: absolute; top: 390px; left: 387px; scale: 0.6;">1</a>
+            <a class = "ind_9 off_display el_P2" style = "color:black; position: absolute; top: 139px; left: 320px;">P</a>
+            <a class = "ind_9 off_display el_P2" style = "color:black; position: absolute; top: 142px; left: 327px; scale: 0.6;">2</a>
+
+            <svg class = "ind_10 off_display line_l2_P2" height="500" width="500" style="stroke:black; stroke-width:2;fill:none; position: absolute; left:200px; top: 40px;z-index:-1">
+                <polyline points="116,115 172,166"/>
+            </svg>
+            <svg class = "ind_11 off_display line_51_P1" height="500" width="500" style="stroke:black; stroke-width:2;fill:none; position: absolute; left:200px; top: 40px;z-index:-1">
+                <polyline points="115,309 63,269"/>
+            </svg>
+        <div class = "text box_animate_2" id = "10" >
+            <div class = "inf"> Видимость горизонтальной проекции прямой l определяется с помощью конкурирующих точек на горизонтально проецирующем луче. Например, это точки 3 и 4</div>
+            </div>
+        <div class = "text box_animate_2" id = "9" >
+            <div class = "inf"> Видимость фронтальной проекции прямой l определяется с помощью конкурирующих точек на фронтально проецирующем луче. Например, это точки 1 и 5</div>
+            </div>
+        <div class = "text box_animate_2" id = "8" >
+            <div class = "inf"> Видимость прямой линии определяется по конкурирующим точкам</div>
+            </div>
+        <div class = "text box_animate_2" id = "7" >
+            <div class = "inf"> Точка парасечения прямых l и m - искомая точка Р(Р1Р2). Поскольку она пренадлежит заданным фигурам: прямой l и плоскости (АВС) </div>
+            </div>
+        <div class = "text box_animate_2" id = "6" >
+            <div class = "inf"> Теперь в плоскости посредника две пересекающихся прямые: l и m</div>
+            </div>
+        <div class = "text box_animate_2" id = "5" >
+            <div class = "inf"> Тем самым определяется линия пересечения посредника с заданной плоскостью: m(1,2)</div>
+            </div>
+        <div class = "text box_animate_2" id = "4" >
+            <div class = "inf"> Посредник пересекает стороны треугольника АС и ВС в точках 1 и 2</div>
+            </div>
+        <div class = "text box_animate_2" id = "3">
+            <div class = "inf"> Через заданную прямую l проводится посредник. Например,- фронтально проецирующаяся плоскость ∑(∑₂)</div>
+            </div>
+        <div class = "text box_animate_2" id = "2">
+            <div class = "inf"> Пересечение геометрических фигур требует применения способа секущих посредников </div>
+            </div>
+        
+        <div class = "exercise box_animate_1" id = "1">
+            <div class = "inf">Построить точку пересечения прямой l с плоскостью (АВС) общего положения.</div>
+            </div>
+        </div>
+    <div class = "control">
+        <a class = "point"> <img src="svg/again.svg" alt="again" id="again" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point"> <img src="svg/back.svg" alt="back" id="back" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img src="svg/start.svg" alt="start" id="start" style = "position: absolute; top: 390px; left: 255px"></a>
+    
+    <a class = "point"> <img src="svg/play.svg" alt="play" id="play" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img src="svg/forward.svg" alt="forward" id="forward" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+    <div class = "control_click"> <a class = "point">
+        <img src="svg/again_click.svg" alt="again_clicked" id="again_click" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point" > <img class = "clicked" src="svg/back_click.svg" alt="back" id="back_click" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/start_click.svg" alt="start" id="start_click" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/play_click.svg" alt="play" id="play_click" style = "position: absolute; top: 385px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/forward_click.svg" alt="forward" id="forward_click" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+</div>
+<button onclick="document.location='index.html'" type="button" class="index_button" >На главную</button><br>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--    <script src="js/jquery-3.6.0.min.js"></script>-->
+    <script src="../js/main.js"></script>
+    <script src="../js/switch_animation.js"></script>
+    <script src="../js/variables.js"></script>
+    <script src="../js/lesson_8.js"></script>
+</div>
+
+</body></html>
+

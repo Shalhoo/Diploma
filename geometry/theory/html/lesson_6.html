@@ -1,0 +1,142 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&amp;display=swap" rel="stylesheet">
+        <link type="image/png" sizes="32x32" rel="icon" href="svg/mati.svg">
+    <link rel="stylesheet" href="../css/file.css">
+    <link rel="stylesheet" href="../css/lesson_6.css">
+    <title>Вращение</title>
+</head>
+<body>
+<div>
+    <header>
+             <a><img src="svg/mai.png" alt="mai" style="height: 70px; width:70px; padding-top: 20px; padding-left: 30px;"></a>
+            <h1> Приложение к рабочей тетради по начертательной геометрии </br>Вращение</h1>
+        </div>
+    </header>
+    <div class= "main_section">
+<div class = "animation">
+    <div class = "paint">
+        <div class = "figures">
+            <svg height="500" width="1000" style="stroke:black;fill:none;">
+                <polyline points="60,50 60,160" style="stroke-width:3"/>
+                <polyline points="60,240 60,320" style="stroke-width:1"/>
+                <polyline points="1,320 230,320" style="stroke-width:2"/>
+                <polyline points="130,110 130,185" style="stroke-width:1"/>
+                <polyline points="280,50 460,50" style="stroke-width:2"/>
+                <polyline points="350,50 350,185" style="stroke-width:1"/>
+                <polyline points="350,260 350,370" style="stroke-width:3"/>
+                <circle cx = "350" cy = "50" r = "4" style="fill:#737373;stroke:black;stroke-width:1" />
+                <circle cx = "130" cy = "110" r = "4" style="fill:#737373;stroke:black;stroke-width:1" />
+                <circle cx = "130" cy = "185" r = "4" style="fill:#737373;stroke:black;stroke-width:1" />
+                <circle cx = "60" cy = "320" r = "4" style="fill:#737373;stroke:black;stroke-width:1" />
+            </svg>
+            <a style = "position: absolute; top:80px; left: 45px;">i</a>
+            <a style = "position: absolute; top:83px; left: 47px; scale: 0.6;">2</a>
+            <a style = "position: absolute; top:300px; left: 45px;">i</a>
+            <a style = "position: absolute; top:303px; left: 47px; scale: 0.6;">1</a>
+            <a style = "position: absolute; top:300px; left: 5px;">Σ</a>
+            <a style = "position: absolute; top:303px; left: 13px; scale: 0.6;">1</a>
+            <a style = "position: absolute; top:300px; left: 360px;">j</a>
+            <a style = "position: absolute; top:303px; left: 363px; scale: 0.6;">1</a>
+            <a style = "position: absolute; top:30px; left: 360px;">j</a>
+            <a style = "position: absolute; top:33px; left: 363px; scale: 0.6;">2</a>
+            <a style = "position: absolute; top:27px; left: 280px;">△</a>
+            <a style = "position: absolute; top:33px; left: 294px; scale: 0.6;">2</a>
+            <a style = "position: absolute; top:95px; left: 105px;">A</a>
+            <a style = "position: absolute; top:98px; left: 114px; scale: 0.6;">2</a>
+            <a style = "position: absolute; top:175px; left: 105px;">A</a>
+            <a style = "position: absolute; top:178px; left: 114px; scale: 0.6;">1</a>
+        </div>
+            <svg class = "red_el figures ind_5 off_display" height="500" width="350" style="stroke:red;fill:none;">
+                <polyline points="215,110 215,320" style="stroke-width:1"/>
+                <polyline points="215,110 130,110" style="stroke-width:1"/>
+                <polyline points="150,106 154,110 150,114" style="stroke-width:2"/>
+                <polyline points="146,184 150,191 144,196" style="stroke-width:2"/>
+                <path d="M130,185 C 170,195 200,210 215,320" style="fill:none;stroke-width:1;"/>
+                <circle cx = "215" cy = "110" r = "4" style="fill:white;stroke:red;stroke-width:1" />
+                <circle cx = "215" cy = "320" r = "4" style="fill:white;stroke:red;stroke-width:1" />
+            </svg>
+                <svg class = "figures ind_4 ind_5 off_display red_el" height="500" width="200" style="stroke:red;fill:none;">
+                    <polyline points="130,110 130,185" style="stroke-width:1"/>
+                </svg>
+            <div class = "figures  ">
+            <a  class = "off_display ind_5 l_2" style = "position: absolute; top:85px; left: 175px;color:red">l</a>
+            <a class = "off_display ind_5 l_2" style = "position: absolute; top:88px; left: 178px; scale: 0.6;color:red">2</a>
+            <a class = "off_display ind_5 l_1" style = "position: absolute; top:185px; left: 175px;color:red">l</a>
+            <a class = "off_display ind_5 l_1" style = "position: absolute; top:188px; left: 178px; scale: 0.6;color:red">1</a>
+            <a class = "off_display ind_5 A_1" style = "position: absolute; top:295px; left: 220px;color:red">Ā</a>
+            <a class = "off_display ind_5 A_1" style = "position: absolute; top:298px; left: 228px; scale: 0.6;color:red">1</a>
+            <a class = "off_display ind_5 A_2" style = "position: absolute; top:85px; left: 215px;color:red">Ā</a>
+            <a class = "off_display ind_5 A_2" style = "position: absolute; top:88px; left: 223px; scale: 0.6;color:red">2</a>
+        </div>
+                <svg class = "figures ind_6 off_display blue_el" height="600" width="600" style="stroke:blue;fill:none;stroke-width:1;position:absolute">
+                <defs>
+                  <clipPath id="cut-off-bottom">
+                    <rect x="198" y="110" width="500" height="100"style="transform:rotate(-8deg)"/>
+                  </clipPath>
+                </defs>
+                <circle cx="307" cy="50" r="110" clip-path="url(#cut-off-bottom)"/>
+                <circle cx = "417" cy = "50" r = "4" style="fill:white;stroke:blue;stroke-width:1" />
+                <circle cx = "417" cy = "320" r = "4" style="fill:white;stroke:blue;stroke-width:1" />
+                <polyline points="413,320 220,320" style="stroke-width:1"/>
+                <polyline points="417,317 417,54" style="stroke-width:1"/>
+                <polyline points="300,316 306,320 300,324" style="stroke-width:2"/>
+                <polyline points="300,156 306,160 300,164" style="stroke-width:2"/>
+                </svg>
+        <div class = "figures">
+                <a class = "ind_6 off_display A_2" style = "position: absolute; top:25px; left: 415px;color:blue">Ā</a>
+                <a class = "ind_6 off_display A_2" style = "position: absolute; top:28px; left: 424px; scale: 0.6;color:blue">2</a>
+                <a class = "ind_6 off_display A_1" style = "position: absolute; top:305px; left: 425px;color:blue">Ā</a>
+                <a class = "ind_6 off_display A_1" style = "position: absolute; top:308px; left: 433px; scale: 0.6;color:blue">1</a>
+                <a class = "ind_6 off_display m_1" style = "position: absolute; top:295px; left: 315px;color:blue">m</a>
+                <a class = "ind_6 off_display m_1" style = "position: absolute; top:298px; left: 327px; scale: 0.6;color:blue">1</a>
+                <a class = "ind_6 off_display m_2" style = "position: absolute; top:165px; left: 315px;color:blue">m</a>
+                <a class = "ind_6 off_display m_2" style = "position: absolute; top:168px; left: 327px; scale: 0.6;color:blue">2</a>
+            </div>
+        <div class = "text box_animate_2" id = "5" >
+            <div class = "inf"> При продолжении врощения точки Ā в положение А перемещается по траектории m(m1,m2)</div>
+            </div>
+        <div class = "text box_animate_2" id = "4" >
+            <div class = "inf"> При первом вращении точка А перемещается в положение Ā по траектории l(l1,l2)</div>
+            </div>
+        <div class = "text box_animate_2" id = "3">
+            <div class = "inf"> Решение задачи оновано на способе вращения вокруг проецирующей прямой, при котором траектория вращения точки в одном направлении проецируется без искажения, в другом - в виде прямой, перпендикулярной к проекции оси вращения </div>
+            </div>
+        <div class = "text box_animate_2" id = "2">
+            <div class = "inf"> &nbsp 2. Продолжить вращение точки против часовой стрелки вокруг оси j до положения А при совмещении ее с горизонтальной плоскостью ∆(∆₂) </div>
+            </div>
+        
+        <div class = "exercise box_animate_1" id = "1">
+            <div class = "inf">Точка А повернуть дважды: </br> &nbsp 1.По часовой стрелке вокруг оси i в положение Ā до совмещения с фронтальной плоскостью ∑(∑₁), проходящей через ось вращения.</div>
+            </div>
+        </div>
+    <div class = "control">
+        <a class = "point"> <img src="svg/again.svg" alt="again" id="again" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point"> <img src="svg/back.svg" alt="back" id="back" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img src="svg/start.svg" alt="start" id="start" style = "position: absolute; top: 390px; left: 255px"></a>
+    
+    <a class = "point"> <img src="svg/play.svg" alt="play" id="play" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img src="svg/forward.svg" alt="forward" id="forward" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+    <div class = "control_click"> <a class = "point">
+        <img src="svg/again_click.svg" alt="again_clicked" id="again_click" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point" > <img class = "clicked" src="svg/back_click.svg" alt="back" id="back_click" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/start_click.svg" alt="start" id="start_click" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/play_click.svg" alt="play" id="play_click" style = "position: absolute; top: 385px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/forward_click.svg" alt="forward" id="forward_click" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+</div>
+<button onclick="document.location='index.html'" type="button" class="index_button" >На главную</button><br>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--    <script src="js/jquery-3.6.0.min.js"></script>-->
+    <script src="../js/main.js"></script>
+    <script src="../js/lesson_6.js"></script>
+    <script src="../js/switch_animation.js"></script>
+    <script src="../js/variables.js"></script>
+</div>
+
+</body></html>
+

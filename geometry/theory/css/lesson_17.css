@@ -1,0 +1,154 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:relative;
+    height:500px;
+}
+.circle{
+    position: absolute;
+   bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.C2_E2, .vert_line_1{
+    position: absolute;
+    /*bottom:70px;
+     left: 50%;
+     transform: translate(-50%, 0);*/
+    opacity:0;
+}
+.A2_B2, .vert_line_2{
+    position: absolute;
+   /*bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0);*/
+    opacity:0;
+}
+.triangle_m2 {
+position: absolute;
+/*bottom:70px;
+transform: translate(-50%, 0);*/
+left: 20.2%;
+opacity:0;
+}
+
+.triangle{
+    position: absolute;
+   bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(335deg);
+}
+.yellow{
+    position: absolute;
+   bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(335deg);
+    opacity:0;
+}
+.rectangle_2 {
+    position: absolute;
+   bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(180deg);
+}
+.blue{
+    position: absolute;
+   bottom:70px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(180deg);
+    opacity:0;
+}
+.vertical{
+    position: absolute;
+   /* bottom:70px; */
+    left: 50%;
+    transform: translate(-50%, 0);
+    /* bottom:220px; */
+    opacity:0;
+}
+.l2 {
+    position:absolute;
+    top:250px;
+    left: 400px;
+    opacity:0;
+}
+.m2 {
+    position:absolute;
+    top:150px;
+    left: 340px;
+    opacity:0;}
+.O1 {
+    position: absolute;
+    top:200px;
+    left:425px;
+    z-index:3;
+}
+.num_1{
+    position: absolute;
+    top:110px;
+    left:450px;
+    opacity:0;
+    z-index:3;
+}
+#point_1 {
+    position:absolute;
+    top:5px;
+    right:-5px;
+}
+#A2 {
+    position: absolute;
+    top:-10px;
+}
+.num_2 {
+    position: absolute;
+    top:315px;
+    left:280px;
+    opacity:0;
+    z-index:3;
+}
+#point_2 {
+    position:absolute;
+    right:-30px;
+}
+#B2{
+    position: absolute;
+    top:10px;
+}
+.num_3 {
+    position: absolute;
+    top:90px;
+    left:308px;
+    opacity:0;
+    z-index:3;
+}
+#point_3 {
+    position:absolute;
+    right:-30px;
+    top:25px;
+}
+#C2{
+    position: absolute;
+    top:10px;
+}
+.num_5{
+    position: absolute;
+    top:126px;
+    left:400px;
+    opacity:0;
+    z-index:3;
+}
+#point_5 {
+    position:absolute;
+    top:27px;
+    right:-25px;
+}
+#E2 {
+    position: absolute;
+    left:-10px;
+}
+
+.on_display {
+    opacity:1;
+}

@@ -1,0 +1,231 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:relative;
+    height:500px;
+}
+.started_drawing{
+    position: absolute;
+    left: 30%;
+    transform: translate(-30%, 0);
+}
+.red_line{
+    position: absolute;
+    top:250px;
+    opacity:0;
+}
+.circle{
+    position: absolute;
+    left: 30%;
+    transform: translate(-30%, 0);
+    opacity:0;
+}
+.A2 {
+    position:absolute;
+    top:64px;
+    left:298px;
+    opacity:0;
+}
+#A2 {
+    top:-10px;
+    left:-22px;
+}
+.l2 {
+    position:absolute;
+    top:84px;
+    left:270px;
+    opacity:0;
+}
+#l2 {
+    top:-10px;
+    left:-12px;
+}
+.l1 {
+    position:absolute;
+    top:385px;
+    left:270px;
+    opacity:0;
+}
+#l1 {
+    top:-10px;
+    left:-10px;
+}
+.l3 {
+    position:absolute;
+    top:84px;
+    left:513px;
+    opacity:0;
+}
+#l3 {
+    top:-10px;
+    left:12px;
+}
+.A1 {
+    position:absolute;
+    top:368px;
+    left:298px;
+    opacity:0;
+}
+#A1 {
+    top:-10px;
+    left:-16px;
+}
+.A3 {
+    position:absolute;
+    top:64px;
+    left:499px;
+    opacity:0;
+}
+#A3 {
+    top:-10px;
+    left:12px;
+}
+.B3 {
+    position:absolute;
+    top:176px;
+    left:494px;
+    opacity:0;
+}
+#B3 {
+    top:-13px;
+    left:16px;
+}
+.B2 {
+    position:absolute;
+    top:176px;
+    left:216px;
+    opacity:0;
+}
+#B2 {
+    top:-20px;
+}
+.B1 {
+    position:absolute;
+    top:366px;
+    left:216px;
+    opacity:0;
+}
+#B1 {
+    top:-10px;
+    left:13px;
+}
+.C2 {
+    position:absolute;
+    top:120px;
+    left:238px;
+    opacity:0;
+}
+#C2 {
+    top:-20px;
+    left:-12px;
+}
+.C1 {
+    position:absolute;
+    top:395px;
+    left:238px;
+    opacity:0;
+}
+#C1 {
+    left:-12px;
+}
+.C1_C2 {
+    position: absolute;
+    top:123px;
+    left: 242px;
+    opacity:0;
+}
+.A2_A3 {
+    position: absolute;
+    top:64px;
+    opacity:0;
+    left: 300px;
+}
+.l2_l3 {
+    position: absolute;
+    top:84px;
+    opacity:0;
+    left: 275px;
+}
+.line_1 {
+    position: absolute;
+    top:104px;
+    left: 253px;
+    opacity:0;
+}
+.line_2 {
+    position: absolute;
+    top:130px;
+    left: 235px;
+    opacity:0;
+}
+.line_3 {
+    position: absolute;
+    top:150px;
+    left: 227px;
+    opacity:0;
+}
+.A2_A1 {
+    position: absolute;
+    top:64px;
+    left: 298px;
+    opacity:0;
+}
+.l2_l1 {
+    position: absolute;
+    top:64px;
+    left: 270px;
+    opacity:0;
+}
+.line_4 {
+    position: absolute;
+    top:64px;
+    left: 250px;
+    opacity:0;
+}
+.line_5 {
+    position: absolute;
+    top:64px;
+    left: 231px;
+    opacity:0;
+}
+.line_6 {
+    position: absolute;
+    top:64px;
+    left: 223px;
+    opacity:0;
+}
+.B2_B1{
+    position: absolute;
+    top:176px;
+    left: 216px;
+    opacity:0;
+}
+.B2_B3 {
+    position: absolute;
+    top:176px;
+    left:216px;
+    opacity:0;
+}
+.delta_1 {
+    position: absolute;
+    top:286px;
+    left:176px;
+    opacity:0;
+}
+.delta_3 {
+    position: absolute;
+    top:200px;
+    left:420px;
+    opacity:0;
+}
+.on_display {
+    opacity:1;
+}
+.off_display {
+    opacity:0;
+}
+.paused{
+    animation-play-state: paused;
+}

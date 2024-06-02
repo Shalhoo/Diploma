@@ -1,0 +1,168 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+}
+.figures {
+    position:relative;
+    height:500px;
+}
+.started_drawing{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.h2, .l1_l2, .d1_d2, .l1_d2, .P1, .P1_P2, .P2{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color:#D160BF;
+    opacity:0;
+}
+.h1_f1 {
+   position: absolute;
+   left: 170px;
+   opacity:0;
+}
+.l1_d1, .l2_d2, .K2_P2 {
+    position: absolute;
+    left: 170px;
+    opacity:0;
+}
+.l1_d2 {
+    position: absolute;
+    left: 170px;
+    opacity:0;
+}
+
+.P1 {
+    top:310px;
+    left:350px;
+    opacity:0;
+}
+.P2 {
+    top:143px;
+    left:350px;
+    opacity:0;
+}
+#point_2 {
+    position:absolute;
+    top:30px;
+    right:-5px;
+}
+#P1, #P2 {
+color: red;
+}
+#m2 {
+    position: absolute;
+    top:170px;
+    left:370px;
+color: red;
+/*opacity:0;*/
+}
+#h2 {
+    top:75px;
+    /* left: 250px; */
+    
+}
+#f1 {
+    top:255px;
+    left: 260px;
+    color:#D160BF;
+    opacity:0;
+}
+.h1, .f2 {
+    position: absolute;
+    left: 50%;
+    /* transform: translate(-50%, 0); */
+    color:#D160BF;
+    opacity:0;
+}
+
+ .line_h1, .line_h2, .line_f1, .line_f2 {
+    position: absolute;
+    left: 170px;
+    /* transform: translate(-50%, 0); */
+    color:#D160BF;
+    opacity:0;
+}
+
+
+#f2 {
+    top:105px;
+    left: 280px;
+    
+}
+#h1 {
+    top:375px;
+    left: 355px;
+}
+.K1 {
+    position:absolute;
+    top: 250px;
+    left:225px;
+    
+}
+.K2 {
+    position:absolute;
+    top: 80px;
+    left:225px;
+}
+.l2 {
+    position:absolute;
+    top: 50px;
+    left:325px;
+}
+.l1 {
+    position:absolute;
+    top: 230px;
+    left:310px;
+}
+.m1 {
+    position:absolute;
+    top: 290px;
+    left:375px;
+}
+.l_1 {
+    position:absolute;
+    top: 370px;
+    left:315px;
+    color:#4AADFF;
+    opacity:0;
+}
+.l_2 {
+    position:absolute;
+    top: 100px;
+    left:332px;
+    color:#4AADFF;
+    opacity:0;
+}
+.d2 {
+    position:absolute;
+    top: 215px;
+    left:370px;
+    color:#4AADFF;
+    opacity:0;
+}
+.d1 {
+    position:absolute;
+    top: 260px;
+    left:370px;
+    color:#4AADFF;
+    opacity:0;
+}
+
+.ind_6 {
+    fill:#FEFFCE;
+    stroke: black;
+    fill-opacity:0.5;
+  }
+.on_display {
+    opacity:1;
+}
+
+.scale{
+    scale:1.3;
+}
+.off_display {
+    opacity:0;
+}

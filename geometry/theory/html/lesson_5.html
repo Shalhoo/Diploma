@@ -1,0 +1,203 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&amp;display=swap" rel="stylesheet">
+        <link type="image/png" sizes="32x32" rel="icon" href="svg/mati.svg">
+    <link rel="stylesheet" href="../css/file.css">
+        <link rel="stylesheet" href="../css/lesson_5.css">
+    <title>Замена плоскостей проекций</title>
+</head>
+<body>
+<div>
+    <header>
+             <a><img src="svg/mai.png" alt="mai" style="height: 70px; width:70px; padding-top: 20px; padding-left: 30px;"></a>
+            <h1> Приложение к рабочей тетради по начертательной геометрии </br> Замена плоскостей проекций </h1>
+        </div>
+    </header>
+    <div class= "main_section">
+<div class = "animation">
+    <div class = "paint">
+        <div class = "ind_9 figures off_display">
+            <svg height="500" width="500" style="stroke:#00B900;fill:none;">
+                <polyline points="40,320 500,382" style="stroke-width:1;"/>
+                <polyline points=" 365,200 338,390" style="stroke-width:1;"/>
+            </svg>
+            <a style = "position: absolute; top:360px; left: 310px; color:#00B900;transform: rotate(10deg);">x14</a>
+        </div>
+        <div class = "ind_10 figures off_display">
+            <svg height="500" width="500" style="stroke:#00B900;fill:none;">
+                <circle cx = "480" cy = "380" r = "5" style="fill:white;stroke-width:1" />
+            </svg>
+            <a style = "position: absolute; top:390px; left: 441px; color:#00B900;">A4 = B4</a>
+        </div>
+        <div class = "ind_11 figures off_display">
+            <svg height="500" width="500" style="stroke:#00B900;fill:none;">
+                <circle cx = "480" cy = "380" r = "5" style="fill:white;stroke-width:1" />
+                <polyline points="170,240 450,283" style="stroke-width:1;"/>
+                <polyline points="200,220 440,257" style="stroke-width:1;"/>
+                <polyline points="426,255 480,380" style="stroke-width:3;"/>
+                <polyline points="420,330 426,257" style="stroke-width:1;"/>
+                <path d="M420,320Q438,340 456,320" stroke-width="1"/>
+                <circle cx = "426" cy = "255" r = "5" style="fill:white;stroke-width:1" />
+                <circle cx = "480" cy = "380" r = "5" style="fill:white;stroke-width:1" />
+                <circle cx = "438" cy = "282" r = "5" style="fill:white;stroke-width:1" />
+            </svg>
+            <a style = "position: absolute; top:390px; left: 441px; color:#00B900;">A4 = B4</a>
+            <a style = "position: absolute; top:235px; left: 426px; color:#00B900;">D4</a>
+            <a style = "position: absolute; top:260px; left: 440px; color:#00B900;">C4</a>
+            <a style = "position: absolute; top:330px; left: 415px; color:#00B900; scale:0.8">α4 = α</a>
+        </div>
+        <div class = "ind_14 figures off_display">
+            <svg height="1000" width="500" style="stroke:red;fill:none;transform-origin: 438px 282px;
+            transform:  rotate(-16deg) scaleX(-1);" id ="red_polyline">
+             <defs>
+                <pattern id="pattern"
+                width="15" height="10"
+                patternUnits="userSpaceOnUse"
+                patternTransform="rotate(45 50 50)">
+         <line stroke="red" stroke-width="3px" y2="10"/>
+       </pattern>
+             </defs>
+                <polyline points="40,340 200,220 300,267 260,370 40,340" style="stroke-width:3; fill:url(#pattern)"/>
+               </svg>
+        </div>
+        <div class = "ind_13 figures off_display">
+             <svg height="1000" width="500" style="stroke:red;fill:none;transform-origin: 438px 282px;
+            transform:  rotate(-16deg) scaleX(-1);" id ="red_polyline">
+               <polyline points="300,266 398,281" style="stroke-width:1;"/>
+               <polyline points="200,220 402,252" style="stroke-width:1;"/>
+               <polyline points="254,370 385,387" style="stroke-width:1;"/>
+               <polyline points=" 365,200 338,390" style="stroke-width:1;"/>
+               </svg>
+        </div>
+        <div class = "ind_14 figures off_display" style="color:red;">
+            <svg height="1000" width="820" style="stroke:red;fill:white;stroke-width:1">
+                <circle cx = "615" cy = "168" r = "5" />
+                <circle cx = "603" cy = "326" r = "5"/>
+                <circle cx = "533" cy = "239" r = "5" />
+                <circle cx = "800" cy = "239" r = "5" />
+               </svg>
+               <a style = "position: absolute; top:220px; left: 620px;font-size: 30px;color:black;">HB</a>
+               <a style = "position: absolute; top:145px; left: 610px;">D5</a>
+               <a style = "position: absolute; top:215px; left: 515px;">C5</a>
+               <a style = "position: absolute; top:332px; left: 600px;">B5</a>
+               <a style = "position: absolute; top:215px; left: 790px;">A5</a>
+        </div>
+        <div class = "ind_13 figures off_display" style="color:red;">
+            <svg height="1000" width="820" style="stroke:red;fill:white;stroke-width:1">
+                <circle cx = "603" cy = "326" r = "5"/>
+               </svg>
+               <a style = "position: absolute; top:332px; left: 600px;">B5</a>
+        </div>
+        <div class = "figures">
+            <svg height="500" width="500" style="stroke:black;fill:none;">
+                <polyline points="200,150 40,70 280,70" style="stroke-width:3;"/>
+                <polyline points="40,70 40,320" style="stroke-width:1;"/>
+                <polyline points="200,150 200,220" style="stroke-width:1;"/>
+                <polyline points="1,185 340,185" style="stroke-width:1;"/>
+                <polyline points="40,320 200,220 300,260 260,350 40,320" style="stroke-width:3;"/>
+            </svg>
+            <a style = "position: absolute; top:40px; left: 30px;">A2</a>
+            <a style = "position: absolute; top:40px; left: 270px;">B2</a>
+            <a style = "position: absolute; top:40px; left: 160px;">h2</a>
+            <a style = "position: absolute; top:145px; left: 210px;">D2</a>
+            <a style = "position: absolute; top:205px; left: 210px;">D1</a>
+            <a style = "position: absolute; top:255px; left: 310px;">C1</a>
+            <a style = "position: absolute; top:345px; left: 270px;">B1</a>
+            <a style = "position: absolute; top:325px; left: 40px;">A1</a>
+            <a style = "position: absolute; top:315px; left: 160px;">h1</a>
+            <a style = "position: absolute; top:160px; left: 5px;">x12</a>
+        </div>
+        <div class = "ind_5 figures off_display">
+            <svg height="500" width="500" style="stroke:#3C9DD0;fill:none;">
+                <polyline points="300,260 170,240" style="stroke-width:1;"/>
+            </svg>
+            <a style = "position: absolute; top:220px; left: 150px; color:#3C9DD0;">1</a>
+            <a style = "position: absolute; top:223px; left: 157px; color:#3C9DD0; scale:0.8;">1</a>
+        </div>
+        <div class = "ind_6 figures off_display">
+            <svg height="500" width="500" style="stroke:#3C9DD0;fill:none;">
+                <polyline points="170,240 170,135 320,135" style="stroke-width:1;"/>
+                <polyline points="300,260 300,115" style="stroke-width:1;"/>
+                <circle cx = "300" cy = "135" r = "5" style="fill:white;stroke:#3C9DD0;stroke-width:1" />
+            </svg>
+            <a style = "position: absolute; top:130px; left: 150px; color:#3C9DD0;">1</a>
+            <a style = "position: absolute; top:133px; left: 157px; color:#3C9DD0; scale:0.8;">2</a>
+            <a style = "position: absolute; top:110px; left: 310px; color:#3C9DD0;">C2</a>
+        </div>
+        <div class = "ind_7 figures off_display">
+            <svg height="500" width="500" style="stroke:#3C9DD0;fill:none;">
+                <polyline points="200,150 300,135 280,70" style="stroke-width:3;"/>
+                <circle cx = "300" cy = "135" r = "5" style="fill:white;stroke:#3C9DD0;stroke-width:1" />
+            </svg>
+        </div>
+        <div class = "text box_animate_2" id = "13" >
+            <div class = "inf"> По отношению к точке 4 точка 3 на ребре BD находится выше, то есть ближе к наблюдателю. Поэтому горизонтальная проекция точки 3 (3₁) и вместе с ней горизонтальная проекция ребра BD(B₁D₁) - видимы</div>
+            </div>
+        <div class = "text box_animate_2" id = "12" >
+            <div class = "inf"> Для горизонтальной проекции конкурирующие точки 3 и 4 зададим на горизонтально проецирующем луче </div>
+            </div>
+        <div class = "text box_animate_2" id = "11" >
+            <div class = "inf"> По отношению к точке 1 точка 2 на ребре BD находится ближе к наблюдателю. Поэтому фронтальная проекция точки 2 (2₂) - видима. Видима и проекция ребра BD(B₂D₂)</div>
+            </div>
+        <div class = "text box_animate_2" id = "10" >
+            <div class = "inf"> Для фронтальной прекции кокурирующий точки 1 и 2 зададим на фронтальном проецирующем луче </div>
+            </div>
+        <div class = "text box_animate_2" id = "9">
+            <div class = "inf"> Видимость ребер на каждой прекции определяется парой конкурирующих точек: по одной точке на каждом ребре </div>
+            </div>
+        <div class = "text box_animate_2" id = "8">
+            <div class = "inf"> Недостающие ребра многогранника - это АС и BD. На первых порах зададим их условно: триховыми линиями </div>
+            </div>
+        <div class = "text box_animate_2" id = "7" >
+            <div class = "inf"> По отношению к точке 4 точка 3 на ребре BD находится выше, то есть ближе к наблюдателю. Поэтому горизонтальная проекция точки 3 (3₁) и вместе с ней горизонтальная проекция ребра BD(B₁D₁) - видимы</div>
+            </div>
+        <div class = "text box_animate_2" id = "6" >
+            <div class = "inf"> Для горизонтальной проекции конкурирующие точки 3 и 4 зададим на горизонтально проецирующем луче </div>
+            </div>
+        <div class = "text box_animate_2" id = "5" >
+            <div class = "inf"> По отношению к точке 1 точка 2 на ребре BD находится ближе к наблюдателю. Поэтому фронтальная проекция точки 2 (2₂) - видима. Видима и проекция ребра BD(B₂D₂)</div>
+            </div>
+        <div class = "text box_animate_2" id = "4" >
+            <div class = "inf"> Для фронтальной прекции кокурирующий точки 1 и 2 зададим на фронтальном проецирующем луче </div>
+            </div>
+        <div class = "text box_animate_2" id = "3">
+            <div class = "inf"> Видимость ребер на каждой прекции определяется парой конкурирующих точек: по одной точке на каждом ребре </div>
+            </div>
+        <div class = "text box_animate_2" id = "2">
+            <div class = "inf"> Недостающие ребра многогранника - это АС и BD. На первых порах зададим их условно: триховыми линиями </div>
+            </div>
+        
+        <div class = "exercise box_animate_1" id = "1">
+            <div class = "inf">1.Достроить фронтальную проекцию плоского 4-х угольника (ABCD). Искомые прекции трезков выделить цветом. </br>2.Спроецировать 4-х угольник в натуральную величину, если АВ||П1.</br>3.Обозначить в натуральную величину угла наклона плоской фигуры к одной из плосокстей проекций.</br>4.Натуральную величину фигуры заштриховать или выделить цветом.</div>
+            </div>
+        </div>
+    <div class = "control">
+        <a class = "point"> <img src="svg/again.svg" alt="again" id="again" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point"> <img src="svg/back.svg" alt="back" id="back" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img src="svg/start.svg" alt="start" id="start" style = "position: absolute; top: 390px; left: 255px"></a>
+    
+    <a class = "point"> <img src="svg/play.svg" alt="play" id="play" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img src="svg/forward.svg" alt="forward" id="forward" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+    <div class = "control_click"> <a class = "point">
+        <img src="svg/again_click.svg" alt="again_clicked" id="again_click" style = "position: absolute; top: 385px; left: 90px"></a>
+    <a class = "point" > <img class = "clicked" src="svg/back_click.svg" alt="back" id="back_click" style = "position: absolute; top: 390px; left: 175px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/start_click.svg" alt="start" id="start_click" style = "position: absolute; top: 390px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/play_click.svg" alt="play" id="play_click" style = "position: absolute; top: 385px; left: 255px"></a>
+    <a class = "point"> <img class = "clicked" src="svg/forward_click.svg" alt="forward" id="forward_click" style = "position: absolute; top: 390px; left: 335px"></a>
+    </div>
+</div>
+<button onclick="document.location='index.html'" type="button" class="index_button" >На главную</button><br>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--    <script src="js/jquery-3.6.0.min.js"></script>-->
+    <script src="../js/main.js"></script>
+    <script src="../js/switch_animation.js"></script>
+    <script src="../js/variables.js"></script>
+    <script src="../js/lesson_5.js"></script>
+</div>
+
+</body></html>
+
