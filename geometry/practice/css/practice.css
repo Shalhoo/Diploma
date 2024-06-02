@@ -52,11 +52,11 @@ section {
 .before-buttons {
   background: #fff;
   border-radius:30px;
-  padding: 10px 22px 0;
+  padding: 10px 19px 0;
 }
 .row .options{
   list-style: none;
-  margin: 10px 0 0 5px;
+  margin: 10px 0 0 0px;
 }
 .in-line{
   display: flex;
@@ -77,7 +77,7 @@ section {
 .option :where(span){
   color: #24508d;
   cursor: pointer;
-  padding-left: 10px;
+  padding-right: 2px;
   font-family: 'Montserrat', sans-serif;
 }
 .option:is(:hover, .active) :where(span){
@@ -99,7 +99,7 @@ section {
 }
 .colors .option{
   height: 20px;
-  width: 100px;
+  width: 54px;
   border-radius: 30px;
   margin-top: 3px;
   position: relative;
@@ -141,10 +141,10 @@ section {
   background: #24508d;
   transition: all 0.3s ease;
 }
-.buttons .save-img{
+.buttons .undo-last{
   background: #24508d;
 }
-.clear-canvas:hover, .save-img:hover{
+.clear-canvas:hover, .undo-last:hover{
   color: #24508d;
   background: #fff;
 }
