@@ -238,14 +238,15 @@ canvas.addEventListener("mouseup", () => isDrawing = false);
 
 canvas.addEventListener("touchstart", (e) => {
   const touch = e.touches[0];
-  startDraw({ type: "touchstart", clientX: touch.clientX, clientY: touch.clientY });
+  startDraw({ type: "touchstart", offsetX: touch.pageX - canvas.offsetLeft, offsetY: touch.pageY - canvas.offsetTop });
 });
 
 canvas.addEventListener("touchmove", (e) => {
   e.preventDefault();
   const touch = e.touches[0];
-  drawing({ type: "touchmove", clientX: touch.clientX, clientY: touch.clientY });
+  drawing({ type: "touchmove", offsetX: touch.pageX - canvas.offsetLeft, offsetY: touch.pageY - canvas.offsetTop });
 });
+      canvas.addEventListener("touchcancel", () => isDrawing = false);
 
 canvas.addEventListener("touchend", () => isDrawing = false);
     </script>
