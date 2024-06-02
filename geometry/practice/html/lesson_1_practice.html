@@ -139,41 +139,72 @@ window.addEventListener("load", () => {
 
 const drawLine = (e) => {
   ctx.beginPath();
-  ctx.moveTo(prevMouseX, prevMouseY);
-  ctx.lineTo(e.clientX, e.clientY);
+  if (e.type === "mousedown") {
+    ctx.moveTo(e.offsetX, e.offsetY);
+    ctx.lineTo(e.clientX, e.clientY);
+  } else if (e.type === "touchmove") {
+    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.lineTo(e.touches[0].pageX - canvas.offsetLeft, e.touches[0].pageY - canvas.offsetTop);
+  }
   ctx.stroke();
 }
 
 const drawDashed = (e) => {
   ctx.beginPath();
-  ctx.moveTo(prevMouseX, prevMouseY);
-  ctx.lineTo(e.clientX, e.clientY);
+  if (e.type === "mousedown") {
+    ctx.moveTo(e.offsetX, e.offsetY);
+    ctx.lineTo(e.clientX, e.clientY);
+  } else if (e.type === "touchmove") {
+    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.lineTo(e.touches[0].pageX - canvas.offsetLeft, e.touches[0].pageY - canvas.offsetTop);
+  }
   ctx.setLineDash([5, 10]); 
   ctx.lineCap = 'butt';
   ctx.stroke();
 }
 
 const drawRect = (e) => {
-  if(!fillColor.checked) {
-    return ctx.strokeRect(e.clientX, e.clientY, prevMouseX - e.clientX, prevMouseY - e.clientY);
+  if (!fillColor.checked) {
+    if (e.type === "mousedown") {
+      ctx.strokeRect(e.offsetX, e.offsetY, e.clientX - e.offsetX, e.clientY - e.offsetY);
+    } else if (e.type === "touchmove") {
+      ctx.strokeRect(prevMouseX, prevMouseY, e.touches[0].pageX - canvas.offsetLeft - prevMouseX, e.touches[0].pageY - canvas.offsetTop - prevMouseY);
+    }
+  } else {
+    if (e.type === "mousedown") {
+      ctx.fillRect(e.offsetX, e.offsetY, e.clientX - e.offsetX, e.clientY - e.offsetY);
+    } else if (e.type === "touchmove") {
+      ctx.fillRect(prevMouseX, prevMouseY, e.touches[0].pageX - canvas.offsetLeft - prevMouseX, e.touches[0].pageY - canvas.offsetTop - prevMouseY);
+    }
   }
-  ctx.fillRect(e.clientX, e.clientY, prevMouseX - e.clientX, prevMouseY - e.clientY);
 }
 
 const drawCircle = (e) => {
   ctx.beginPath();
-  let radius = Math.sqrt(Math.pow((prevMouseX - e.clientX), 2) + Math.pow((prevMouseY - e.clientY), 2));
-  ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
-  fillColor.checked ? ctx.fill() : ctx.stroke();
+  if (e.type === "mousedown") {
+    let radius = Math.sqrt(Math.pow((prevMouseX - e.clientX), 2) + Math.pow((prevMouseY - e.clientY), 2));
+    ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+  } else if (e.type === "touchmove") {
+    let radius = Math.sqrt(Math.pow((prevMouseX - e.touches[0].pageX + canvas.offsetLeft), 2) + Math.pow((prevMouseY - e.touches[0].pageY + canvas.offsetTop), 2));
+    ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI);
+  }
+  fillColor.checked? ctx.fill() : ctx.stroke();
 }
 
 const drawTriangle = (e) => {
   ctx.beginPath();
-  ctx.moveTo(prevMouseX, prevMouseY);
-  ctx.lineTo(e.clientX, e.clientY);
-  ctx.lineTo(prevMouseX * 2 - e.clientX, e.clientY);
-  ctx.closePath();
-  fillColor.checked ? ctx.fill() : ctx.stroke();
+  if (e.type === "mousedown") {
+    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.lineTo(prevMouseX * 2 - e.clientX, e.clientY);
+    ctx.closePath();
+  } else if (e.type === "touchmove") {
+    ctx.moveTo(prevMouseX, prevMouseY);
+    ctx.lineTo(e.touches[0].pageX - canvas.offsetLeft, e.touches[0].pageY - canvas.offsetTop);
+    ctx.lineTo(prevMouseX * 2 - e.touches[0].pageX + canvas.offsetLeft, e.touches[0].pageY - canvas.offsetTop);
+    ctx.closePath();
+  }
+  fillColor.checked? ctx.fill() : ctx.stroke();
 }
 
 const startDraw = (e) => {
