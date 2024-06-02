@@ -94,6 +94,7 @@
       pencilWidth = 3,
       selectedColor = "#000";
       let history = [];
+      let touchX, touchY;
 
       toolBtns.forEach(function(btn) {
         btn.addEventListener("click", function() { // добавление события клика ко всем опциям инструмента
@@ -177,40 +178,54 @@
       }
 
       const startDraw = (e) => {
-          isDrawing = true;
-          prevMouseX = e.offsetX;
-          prevMouseY = e.offsetY;
-          ctx.beginPath();
-          ctx.lineWidth = pencilWidth;
-          ctx.strokeStyle = selectedColor;
-          ctx.fillStyle = selectedColor;
-          snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          history.push(snapshot); // добавляем изображения в историю
-      }
+  isDrawing = true;
+  if (e.type === "mousedown") {
+    prevMouseX = e.offsetX;
+    prevMouseY = e.offsetY;
+  } else {
+    const touch = e.touches[0];
+    touchX = touch.clientX;
+    touchY = touch.clientY;
+  }
+  ctx.beginPath();
+  ctx.lineWidth = pencilWidth;
+  ctx.strokeStyle = selectedColor;
+  ctx.fillStyle = selectedColor;
+  snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  history.push(snapshot); // добавляем изображения в историю
+}
 
       const drawing = (e) => {
-          if(!isDrawing) return;
-          ctx.putImageData(snapshot, 0, 0);
-          if(selectedTool === "pencil" || selectedTool === "eraser") {
-              ctx.strokeStyle = selectedTool === "eraser" ? "#fff" : selectedColor;
-              ctx.lineTo(e.offsetX, e.offsetY);
-              ctx.stroke();
-          } else if(selectedTool === "dashedLine"){
-            drawDashed(e);
-          } else if(selectedTool === "line"){
-            ctx.setLineDash([]); // Сбрасываем настройки штриховой линии
-            drawLine(e);
-          } else if(selectedTool === "rectangle"){
-            ctx.setLineDash([]);
-            drawRect(e);
-          } else if(selectedTool === "circle"){
-            ctx.setLineDash([]);
-            drawCircle(e);
-          } else {
-            ctx.setLineDash([]);
-            drawTriangle(e);
-          }
-      }
+  if (!isDrawing) return;
+  if (e.type === "mousemove") {
+    prevMouseX = e.offsetX;
+    prevMouseY = e.offsetY;
+  } else {
+    const touch = e.touches[0];
+    touchX = touch.clientX;
+    touchY = touch.clientY;
+  }
+  ctx.putImageData(snapshot, 0, 0);
+  if (selectedTool === "pencil" || selectedTool === "eraser") {
+    ctx.strokeStyle = selectedTool === "eraser"? "#fff" : selectedColor;
+    ctx.lineTo(prevMouseX, prevMouseY);
+    ctx.stroke();
+  } else if (selectedTool === "dashedLine") {
+    drawDashed(prevMouseX, prevMouseY);
+  } else if (selectedTool === "line") {
+    ctx.setLineDash([]); // Сбрасываем настройки штриховой линии
+    drawLine(prevMouseX, prevMouseY);
+  } else if (selectedTool === "rectangle") {
+    ctx.setLineDash([]);
+    drawRect(prevMouseX, prevMouseY);
+  } else if (selectedTool === "circle") {
+    ctx.setLineDash([]);
+    drawCircle(prevMouseX, prevMouseY);
+  } else {
+    ctx.setLineDash([]);
+    drawTriangle(prevMouseX, prevMouseY);
+  }
+}
 
       undoLast.addEventListener("click", () => {
   if (history.length >= 1) {
@@ -223,6 +238,16 @@
       canvas.addEventListener("mousedown", startDraw);
       canvas.addEventListener("mousemove", drawing);
       canvas.addEventListener("mouseup", () => isDrawing = false);
+
+      // Обработчики событий касаний
+      canvas.addEventListener("touchstart", (e) => {
+        startDraw(e);
+      });
+      canvas.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        drawing(e);
+      });
+      canvas.addEventListener("touchend", () => isDrawing = false);
     </script>
   </body>
 </html>
